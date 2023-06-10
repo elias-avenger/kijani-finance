@@ -11,7 +11,7 @@
             $_SESSION['email'] = $em;
             $type = $user_array['type'];
             if($type === 'A'){
-                header("location: dashboard.php");
+                header("location: dashboard/dashboard.php");
             }
             elseif($type === 'B')
             {

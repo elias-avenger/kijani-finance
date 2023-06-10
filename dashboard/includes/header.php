@@ -16,12 +16,12 @@
       <h1 class="text-2xl font-bold">Dashboard</h1>
       <nav class="hidden md:block">
         <ul class="flex space-x-4">
-          <li><a href="#" class="hover:text-gray-300">Home</a></li>
+          <li><a href="dashboard.php" class="hover:text-gray-300">Home</a></li>
           <li><a href="#" class="hover:text-gray-300">Budgets</a></li>
           <li><a href="#" class="hover:text-gray-300">Proposals</a></li>
           <li><a href="#" class="hover:text-gray-300">Profile</a></li>
-          <li><a href="#" class="hover:text-gray-300">Users</a></li>
-          <li><a href="#" class="hover:text-gray-300">Logout</a></li>
+          <li><a href="dash_users.php" class="hover:text-gray-300">Users</a></li>
+          <li><a href="../logout.php" class="hover:text-gray-300">Logout</a></li>
         </ul>
       </nav>
       <div class="md:hidden">
