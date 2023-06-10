@@ -4,4 +4,5 @@
     if(empty($users)){
         header("location:admin_signup.php");
     }
+    echo "Login here!"
 ?>
