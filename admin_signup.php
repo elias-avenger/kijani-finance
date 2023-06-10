@@ -15,9 +15,9 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-    <div class="min-h-screen flex items-center justify-center bg-gray-100">
+    <div class="min-h-screen flex items-center justify-center bg-gray-100" style="background-color: #235F3D;">
         <div class="max-w-md w-full mx-auto p-4">
-          <h2 class="text-3xl font-bold text-center mb-4">Admin (Creator) Signup</h2>
+          <img src="images/logo-1.png" class="mb-4 w-96" alt="logo">
           <?php
             include 'msg.php';
           ?>
@@ -51,7 +51,7 @@
               <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="conf_password" type="password" placeholder="Re-enter your password">
             </div>
             <div class="flex items-center justify-between">
-              <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" name="add-creator" value="Sign Up">
+              <input class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" style="background-color: #235F3D;" type="submit" name="add-creator" value="Sign Up">
             </div>
           </form>
         </div>
