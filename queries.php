@@ -17,4 +17,13 @@
         $query = $conn->prepare($sql);
         $query->execute();
     }
+
+    function getUser($email){
+        global $conn;
+        $sql = "SELECT * FROM users WHERE email = '$email'";
+        $query = $conn -> prepare($sql);
+        $query -> execute();
+        $result = $query->get_result();
+        return $result;
+    }
 ?>
