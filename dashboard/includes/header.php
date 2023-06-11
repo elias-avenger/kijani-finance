@@ -1,3 +1,15 @@
+<?php
+  include "../queries.php";
+  //$users = getData('users');
+  if(!isset($_SESSION['email']))
+    header("location:../index.php");
+
+  $user_data = mysqli_fetch_array(getUser($_SESSION['email']));
+  if($user_data['type'] !== 'A')
+    header("location:../index.php");
+    
+  echo $user_data['fname']." ".$user_data['lname'];
+?>
 <!DOCTYPE html>
 <html lang="en">
 

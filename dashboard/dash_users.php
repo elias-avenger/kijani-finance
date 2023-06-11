@@ -1,4 +1,6 @@
-<?php include 'includes/header.php' ?>
+<?php 
+  include 'includes/header.php'; 
+?>
   <!-- Dashboard Content -->
   <div class="container mx-auto py-8 px-4">
     <h2 class="text-3xl font-bold mb-4">Users</h2>
@@ -42,6 +44,9 @@
       <!-- Add User Form -->
       <div class="bg-white shadow-md rounded-md p-4">
         <h3 class="text-lg font-bold mb-4">Add User</h3>
+        <?php
+            include "../msg.php";
+        ?>
         <form class="flex flex-col">
           <div class="mt-4">
             <label for="fname" class="block">First Name:</label>
