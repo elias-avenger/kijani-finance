@@ -17,7 +17,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kijani Forestry</title>
-  <link rel="icon" type="image/x-icon" href="../images/KF_Green_Icon.png">
+  <link rel="icon" type="image/x-icon" href="../images/KF_icon.png">
   <!-- Tailwind CSS CDN -->
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
   
@@ -35,7 +35,7 @@
           <li><a href="#" class="hover:text-gray-300">Proposals</a></li>
           <li><a href="#" class="hover:text-gray-300">Profile</a></li>
           <li><a href="dash_users.php" class="hover:text-gray-300">Users</a></li>
-          <li><a href="../logout.php" class="hover:text-gray-300">Logout</a></li>
+          <li><a href="../controllers/logout.php" class="hover:text-gray-300">Logout</a></li>
         </ul>
       </nav>
       <div class="md:hidden">

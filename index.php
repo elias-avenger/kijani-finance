@@ -4,8 +4,6 @@
     if(empty($users)){
         header("location:admin_signup.php");
     }
-    else
-      echo count($users);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,7 +12,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Kijani Forestry</title>
-  <link rel="icon" type="image/x-icon" href="images/KF_Green_Icon.png">
+  <link rel="icon" type="image/x-icon" href="images/KF_icon.png">
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>

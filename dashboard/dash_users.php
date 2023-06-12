@@ -45,7 +45,7 @@
       <div class="bg-white shadow-md rounded-md p-4">
         <h3 class="text-lg font-bold mb-4">Add User</h3>
         <?php
-            include "../msg.php";
+            include "../controllers/msg.php";
         ?>
         <form class="flex flex-col">
           <div class="mt-4">
