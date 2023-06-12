@@ -1,5 +1,5 @@
 <?php
-    include "queries.php";
+    include "controllers/db/queries.php";
     $users = getData('users');
     if(!empty($users)){
       header("location:index.php");
@@ -20,9 +20,9 @@
         <div class="max-w-md w-full mx-auto p-4">
           <img src="images/logo-1.png" class="mb-4 w-96" alt="logo">
           <?php
-            include 'msg.php';
+            include 'controllers/msg.php';
           ?>
-          <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" action="submit.php" method="POST">
+          <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" action="controllers/submit.php" method="POST">
             <div class="mb-4">
               <label class="block text-gray-700 text-sm font-bold mb-2" for="fname">First Name:</label>
               <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="fname" type="text" placeholder="Enter your first name" required>

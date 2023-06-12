@@ -1,5 +1,5 @@
 <?php
-  include "../queries.php";
+  include "../controllers/db/queries.php";
   //$users = getData('users');
   if(!isset($_SESSION['email']))
     header("location:../index.php");

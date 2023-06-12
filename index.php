@@ -1,9 +1,11 @@
 <?php
-    include "queries.php";
+    include "controllers/db/queries.php";
     $users = getData('users');
     if(empty($users)){
         header("location:admin_signup.php");
     }
+    else
+      echo count($users);
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,9 +23,9 @@
     <img src="images/logo-1.png" class="mb-4 w-96" alt="logo">
     <div class="max-w-md w-full mx-auto p-4">
         <?php
-            include 'msg.php';
+            include "controllers/msg.php";
         ?>
-      <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" action="login.php" method="POST">
+      <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4" action="controllers/login.php" method="POST">
         <div class="mb-4">
           <label class="block text-gray-700 text-sm font-bold mb-2" for="email">Email:</label>
           <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="email" type="email" name="email" placeholder="Enter your email" required>

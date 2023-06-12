@@ -1,5 +1,5 @@
 <?php
-    include "queries.php";
+    include "db/queries.php";
     if(isset($_POST['add-creator'])){
         $fn = $_POST['fname'];
         $ln = $_POST['lname'];
@@ -21,6 +21,6 @@
             addData($qry);
             $_SESSION['msg'] = "success";
         }
-        header("location: admin_signup.php");
+        header("location: ../admin_signup.php");
     }
 ?>
