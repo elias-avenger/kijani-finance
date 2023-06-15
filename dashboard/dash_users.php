@@ -23,19 +23,32 @@
             </thead>
             <tbody>
               <!-- User Row 1 -->
-              <tr>
-                <td class="p-2">User 1</td>
-                <td class="p-2">test@test.org</td>
-                <td class="p-2">+25678897789878</td>
-                <td class="p-2">Budget</td>
-                <td class="p-2">main farm</td>
-                <td class="flex gap-4 p-2">
-                  <a href="#"><img src="../images/edit_black_24dp.svg" alt="edit"></a>
-                  <a href="#"><img src="../images/delete_black_24dp.svg" alt="delete"></a>
-                </td>
-              </tr>
-              <!-- User Row 2 -->
-              <!-- Add more user rows here -->
+              <?php
+                $users = getData('users');
+                foreach($users as $user){
+                  $uid = $user['id'];
+                  if(mysqli_num_rows(getDepartment($uid)) > 0){
+                    $department = mysqli_fetch_array(getDepartment($uid));
+                    $dpt = $department['name'];
+                  }
+                  else{
+                    $dpt = "Not Assigned";
+                  }                  
+                  ?>
+                  <tr>
+                    <td class="p-2"><?php echo $user['fname']." ".$user['lname'];?></td>
+                    <td class="p-2"><?php echo $user['email'];?></td>
+                    <td class="p-2"><?php echo $user['phone'];?></td>
+                    <td class="p-2"><?php echo ($user['type'] === 'A'? "Admin": "Budgeting");?></td>
+                    <td class="p-2"><?php echo $dpt;?></td>
+                    <td class="flex gap-4 p-2">
+                      <a href="#"><img src="../images/edit_black_24dp.svg" alt="edit"></a>
+                      <a href="#"><img src="../images/delete_black_24dp.svg" alt="delete"></a>
+                    </td>
+                  </tr>
+                  <?php
+                }
+              ?>
             </tbody>
           </table>
         </div>

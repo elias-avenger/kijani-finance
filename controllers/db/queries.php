@@ -26,4 +26,12 @@
         $result = $query->get_result();
         return $result;
     }
+    function getDepartment($user){
+        global $conn;
+        $sql = "SELECT * FROM budgeting_entity WHERE incharge = '$user'";
+        $query = $conn -> prepare($sql);
+        $query -> execute();
+        $result = $query->get_result();
+        return $result;
+    }
 ?>
