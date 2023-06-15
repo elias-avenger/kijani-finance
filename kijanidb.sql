@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2023 at 10:11 AM
+-- Generation Time: Jun 15, 2023 at 04:29 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -88,11 +88,20 @@ CREATE TABLE `users` (
   `fname` varchar(20) NOT NULL,
   `lname` varchar(20) NOT NULL,
   `email` varchar(45) NOT NULL,
-  `password` varchar(40) NOT NULL,
+  `password` varchar(60) NOT NULL,
   `phone` varchar(15) DEFAULT NULL,
   `dob` date DEFAULT NULL,
-  `type` char(1) NOT NULL
+  `type` char(1) NOT NULL,
+  `created_by` int(5) UNSIGNED ZEROFILL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `fname`, `lname`, `email`, `password`, `phone`, `dob`, `type`, `created_by`) VALUES
+(00005, 'Elias', 'Muhoozi', 'eliasmuhoozi@gmail.com', '$2y$10$/Y23vT/2fOjBGWUBrkJb9uORHK.IGMl1rEFTsuNcQGmapu6lDkd1m', '0775125132', '1996-05-09', 'A', NULL),
+(00006, 'Elias', 'Muhoozi', 'eli0@outlook.com', '$2y$10$wL20buZSxAfgnyLA0bTkaeM59uF3bp2tlK2LlubeHQJLMldiAYs2u', '0775125132', '2021-10-11', 'B', 00005);
 
 --
 -- Indexes for dumped tables
@@ -165,7 +174,7 @@ ALTER TABLE `item_category`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(5) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(5) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Constraints for dumped tables
