@@ -25,11 +25,15 @@
       $clr = 'red-700';
       $msg = "Email or Password Incorrect!";
     }
+    elseif($type == "email-exists"){
+      $clr = 'red-700';
+      $msg = "User account with the same <u>email</u> already exists!";
+    }
     ?>
     <div id="msg-box" class="mb-4 bg-white text-<?php echo $clr;?> font-bold">
         <?php echo $msg;?>
     </div>
-    <script src="msg.js"></script>
+    <script src="../msg.js"></script>
     <?php
     unset($_SESSION['msg']);
   }

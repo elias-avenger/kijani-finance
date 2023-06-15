@@ -1,5 +1,5 @@
 <?php 
-  include 'includes/header.php'; 
+  include 'includes/header.php';
 ?>
   <!-- Dashboard Content -->
   <div class="container mx-auto py-8 px-4">
@@ -47,38 +47,42 @@
         <?php
             include "../controllers/msg.php";
         ?>
-        <form class="flex flex-col">
+        <form class="flex flex-col" action="../controllers/submit.php" method="POST">
           <div class="mt-4">
             <label for="fname" class="block">First Name:</label>
-            <input type="text" name="fname" id="fname" class="border-2 border-gray-300 rounded-md p-1">
+            <input type="text" name="fname" id="fname" class="border-2 border-gray-300 rounded-md p-1" required>
           </div>
           <div class="mt-4">
             <label for="lname" class="block">Last Name:</label>
-            <input type="text" name="lname" id="lname" class="border-2 border-gray-300 rounded-md p-1">
+            <input type="text" name="lname" id="lname" class="border-2 border-gray-300 rounded-md p-1" required>
           </div>
           <div class="mt-4">
             <label for="email" class="block">Email:</label>
-            <input type="email" name="email" id="email" class="border-2 border-gray-300 rounded-md p-1">
+            <input type="email" name="email" id="email" class="border-2 border-gray-300 rounded-md p-1" required>
           </div>
           <div class="mt-4">
             <label for="password" class="block">Password:</label>
-            <input type="password" name="password" id="password" class="border-2 border-gray-300 rounded-md p-1">
+            <input type="password" name="password" id="password" class="border-2 border-gray-300 rounded-md p-1" required>
           </div>
           <div class="mt-4">
+              <label class="block " for="conf_password">Confirm Password:</label>
+              <input name="conf_password" type="password" placeholder="Re-enter your password" class="border-2 border-gray-300 rounded-md p-1" required>
+            </div>
+          <div class="mt-4">
             <label for="phone" class="block">Phone Number:</label>
-            <input type="tel" name="phone" id="phone" class="border-2 border-gray-300 rounded-md p-1">
+            <input type="tel" name="phone" id="phone" class="border-2 border-gray-300 rounded-md p-1" required>
           </div>
           <div class="mt-4">
             <label for="dob" class="block">Date of Birth:</label>
-            <input type="date" name="dob" id="dob" class="border-2 border-gray-300 rounded-md p-1">
+            <input type="date" name="dob" id="dob" class="border-2 border-gray-300 rounded-md p-1" required>
           </div>
           <div class="mt-4">
             <label for="role" class="block">Role:</label>
-            <input type="radio" name="role" id="roleA" value="A" class="border-2 border-gray-300 rounded-md p-1"> Admin
-            <input type="radio" name="role" id="roleB" value="B" class="border-2 border-gray-300 rounded-md p-1"> Budgeting
+            <input type="radio" name="role" id="roleA" value="A" class="border-2 border-gray-300 rounded-md p-1" required> Admin
+            <input type="radio" name="role" id="roleB" value="B" class="border-2 border-gray-300 rounded-md p-1" required> Budgeting
           </div>
           <div class="mt-4">
-            <button type="submit" class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600">Add User</button>
+            <input type="submit" class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600" name="add-user" value="Add User">
           </div>
         </form>
       </div>
