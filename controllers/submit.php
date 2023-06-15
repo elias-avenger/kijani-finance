@@ -7,7 +7,11 @@
         $pd = $_POST['password'];
         $pn = $_POST['phone'];
         $db = $_POST['dob'];
-        (isset($POST['add-creator']) ? $tp = 'A' : $tp =  $_POST['role']);
+        if(isset($POST['add-creator']))
+            $tp = 'A';
+        else
+            $tp =  $_POST['role'];
+            
         $cp = $_POST['conf_password'];
         if(isset($_SESSION['email'])){
             $user_data = mysqli_fetch_array(getUser($_SESSION['email']));
