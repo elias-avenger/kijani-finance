@@ -28,7 +28,7 @@
     }
     function getDepartment($user){
         global $conn;
-        $sql = "SELECT * FROM budgeting_entity WHERE incharge = '$user'";
+        $sql = "SELECT * FROM budgeting_entities WHERE incharge = '$user'";
         $query = $conn -> prepare($sql);
         $query -> execute();
         $result = $query->get_result();

@@ -1,17 +1,24 @@
 <?php
     include "db/queries.php";
-    if(isset($_POST['add-creator']) || isset($_POST['add-user'])){
+    
+    if(isset($_POST['add-creator'])){
+        $type = 'A';
+        validateAndSubmitUser($type);
+        header("location: ../admin_signup.php");
+    }
+    if(isset($_POST['add-user'])){
+        $type =  $_POST['role'];
+        validateAndSubmitUser($type); 
+        header("location: ../dashboard/dash_users.php");   
+    }
+
+    function validateAndSubmitUser($tp){
         $fn = $_POST['fname'];
         $ln = $_POST['lname'];
         $el = $_POST['email'];
         $pd = $_POST['password'];
         $pn = $_POST['phone'];
         $db = $_POST['dob'];
-        if(isset($POST['add-creator']))
-            $tp = 'A';
-        else
-            $tp =  $_POST['role'];
-            
         $cp = $_POST['conf_password'];
         if(isset($_SESSION['email'])){
             $user_data = mysqli_fetch_array(getUser($_SESSION['email']));
@@ -32,7 +39,5 @@
             addData($qry);
             $_SESSION['msg'] = "success";
         }
-        
-        (isset($POST['add-creator']) ? header("location: ../admin_signup.php") : header("location: ../dashboard/dash_users.php"));
     }
 ?>
