@@ -35,7 +35,7 @@
         }
         else{
             $pwd = password_hash($pd, PASSWORD_DEFAULT);
-            $qry = "INSERT INTO users(fname, lname, email, password, phone, dob, type, created_by) VALUES('$fn','$ln','$el','$pwd','$pn','$db','$tp','$uid')";
+            $qry = "INSERT INTO users(fname, lname, email, password, phone, dob, type, registered_by) VALUES('$fn','$ln','$el','$pwd','$pn','$db','$tp','$uid')";
             addData($qry);
             $_SESSION['msg'] = "success";
         }
