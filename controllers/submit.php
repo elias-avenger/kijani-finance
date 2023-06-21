@@ -12,6 +12,16 @@
         header("location: ../dashboard/dash_users.php");   
     }
 
+    if(isset($_POST['add-entity'])){
+        $n = $_POST['e-name'];
+        $d = $_POST['e-description'];
+        $i = $_POST['incharge'];
+        $qry = "INSERT INTO budgeting_entities SET name = '$n', description = '$d', incharge = '$i'";
+        addData($qry);
+        $_SESSION['msg'] = "success";
+        header("location: ../dashboard/dash_users.php");
+    }
+
     function validateAndSubmitUser($tp){
         $fn = $_POST['fname'];
         $ln = $_POST['lname'];

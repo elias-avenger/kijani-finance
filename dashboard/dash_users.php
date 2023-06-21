@@ -35,6 +35,7 @@
                     $dpt = "Not Assigned";
                   }                  
                   ?>
+                  <!-- the row to display user information -->
                   <tr id="main-row<?php echo $uid;?>" style="display: table-row;">
                     <td class="p-2"><?php echo $user['fname']." ".$user['lname'];?></td>
                     <td class="p-2"><?php echo $user['email'];?></td>
@@ -51,6 +52,7 @@
                       </form>
                     </td>
                   </tr>
+                  <!-- the row to display an edit form for user info -->
                   <tr id="edit-row<?php echo $uid;?>" style="display: none;">
                     <form action="../controllers/update.php" method="POST">
                       <input type="hidden" name="uid" value="<?php echo $user['id'];?>">
@@ -111,13 +113,17 @@
         </div>
       </div>
 
-      <!-- Add User Form -->
       <div class="bg-white shadow-md rounded-md p-4">
-        <h3 class="text-lg font-bold mb-4">Add User</h3>
-        <?php
+        <button id="add-user-btn" class="bg-green-800 text-white mb-2 px-1 py-2 rounded-md hover:bg-green-600 w-full">
+          Add new user
+        </button>
+        <!-- <h3 class="text-lg font-bold mb-4">Add User</h3> -->
+        
+        <!-- Add User Form -->
+        <form id="add-user-form" class="flex flex-col" action="../controllers/submit.php" method="POST" style="display: none;">
+          <?php
             include "../controllers/msg.php";
-        ?>
-        <form class="flex flex-col" action="../controllers/submit.php" method="POST">
+          ?>
           <div class="mt-4">
             <label for="fname" class="block">First Name:</label>
             <input type="text" name="fname" id="fname" class="border-2 border-gray-300 rounded-md p-1" required>
@@ -155,6 +161,45 @@
             <input type="submit" class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600" name="add-user" value="Add User">
           </div>
         </form>
+        <button id="add-entity-btn" class="bg-green-800 text-white mb-2 mt-2 px-1 py-2 rounded-md hover:bg-green-600 w-full">
+          Add Budgeting Entity/Department
+        </button>
+        <!-- <h3 class="text-lg font-bold mb-4">Add User</h3> -->
+        
+        <!-- Add User Form -->
+        <form id="add-entity-form" class="flex flex-col" action="../controllers/submit.php" method="POST" style="display: none;">
+          <?php
+              include "../controllers/msg.php";
+          ?>
+          <div class="mt-4">
+            <label for="e-name" class="block">Entity/Department Name:</label>
+            <input type="text" name="e-name" id="e-name" class="border-2 border-gray-300 rounded-md p-1" required>
+          </div>
+          <div class="mt-4">
+            <label for="e-description" class="block">Description:</label>
+            <textarea name="e-description" id="e-description" cols="50" rows="6" class="border-2 border-gray-300 rounded-md p-1"></textarea>
+          </div>
+          <div class="mt-4">
+            <label for="incharge" class="block">User Incharge</label>
+            <select name="incharge" id="incharge" class="border-2 border-gray-300 rounded-md p-1" required>
+              <option value="">Select User</option>
+              <?php
+              foreach($users as $user){
+                //if($user['type']!='A'){
+                ?>
+                <option value="<?php echo $user['id'];?>">
+                  <?php echo $user['fname']." ".$user['lname'];?>
+                </option>
+                <?php
+                //}
+              }
+              ?>
+            </select>
+          </div>
+          <div class="mt-4">
+            <input type="submit" class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600" name="add-entity" value="Add Entity">
+          </div>
+        </form>
       </div>
     </div>
   </div>
@@ -172,4 +217,22 @@
             edit_row<?php echo $user['id']; ?>.style.display = 'table-row';
         });
     <?php endforeach; ?>
+    
+    // toggling between showing the add-user-form and add-entity-form
+    //variables for add-user button and form elements
+    let u_a_btn = document.getElementById('add-user-btn');
+    let u_a_frm = document.getElementById('add-user-form');
+    //variables for add-entity button and form elements 
+    let u_e_btn = document.getElementById('add-entity-btn');
+    let u_e_frm = document.getElementById('add-entity-form');
+    //show the add-user form and hide the add-entity one when add-user button is clicked
+    u_a_btn.addEventListener('click', function(){
+      u_a_frm.style.display = 'block';
+      u_e_frm.style.display = 'none';
+    });
+    //show the add-entity form and hide the add-user one when add-entity button is clicked
+    u_e_btn.addEventListener('click', function(){
+      u_e_frm.style.display = 'block';
+      u_a_frm.style.display = 'none';
+    });
 </script>
