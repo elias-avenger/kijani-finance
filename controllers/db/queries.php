@@ -34,4 +34,22 @@
         $result = $query->get_result();
         return $result;
     }
+    function delete($table, $id){
+        global $conn;
+        $sql = "DELETE FROM $table WHERE id = $id";
+        $query = $conn -> prepare($sql);
+        $query -> execute();
+    }
+    function specialQuery($sql){
+        global $conn;
+        $query = $conn -> prepare($sql);
+        $query -> execute();
+        $result = $query->get_result()->fetch_all(MYSQLI_ASSOC);
+        return $result;
+    }
+    function update($sql){
+        global $conn;
+        $query = $conn->prepare($sql);
+        $query->execute();
+    }
 ?>
