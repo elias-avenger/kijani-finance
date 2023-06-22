@@ -60,3 +60,4 @@
       <li><a href="#" class="hover:text-gray-300">Logout</a></li>
     </ul>
   </div>
+  <img src="../images/KF_icon.png" alt="Test images Access">

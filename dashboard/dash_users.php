@@ -177,7 +177,7 @@
           </div>
           <div class="mt-4">
             <label for="e-description" class="block">Description:</label>
-            <textarea name="e-description" id="e-description" cols="50" rows="6" class="border-2 border-gray-300 rounded-md p-1"></textarea>
+            <textarea name="e-description" id="e-description" cols="40" rows="5" class="border-2 border-gray-300 rounded-md p-1"></textarea>
           </div>
           <div class="mt-4">
             <label for="incharge" class="block">User Incharge</label>
