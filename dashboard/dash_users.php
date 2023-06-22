@@ -63,7 +63,7 @@
                         <input type="text" name="email" value="<?php echo $user['email'];?>" class="border-2 border-gray-300 rounded-md p-1">
                       </td>
                       <td class="p-2">
-                        <input type="phone" name="phone" value="<?php echo $user['phone'];?>" class="border-2 border-gray-300 rounded-md p-1">
+                        <input type="phone" name="phone" value="<?php echo $user['phone'];?>" class="border-2 border-gray-300 rounded-md p-1 w-[6.4rem]">
                       </td>
                       <td class="p-2">
                         <select name="type" id="" required class="border-2 border-gray-300 rounded-md p-1">
