@@ -21,6 +21,24 @@
         $_SESSION['msg'] = "success";
         header("location: ../dashboard/dash_users.php");
     }
+    if(isset($_POST['add-category'])){
+        $n = $_POST['cat-name'];
+        $d = $_POST['description'];
+        $qry = "INSERT INTO item_categories SET name= '$n', description = '$d'";
+        addData($qry);
+        $_SESSION['msg'] = "success";
+        header("location: ../dashboard/dash_items.php");
+    }
+    if(isset($_POST['add-item'])){
+        $n = $_POST['i-name'];
+        $d = $_POST['description'];
+        $u = $_POST['unit'];
+        $c = $_POST['category'];
+        $qry = "INSERT INTO budget_items SET name= '$n', description = '$d', unit = '$u', category = '$c'";
+        addData($qry);
+        $_SESSION['msg'] = "success";
+        header("location: ../dashboard/dash_items.php");
+    }
 
     function validateAndSubmitUser($tp){
         $fn = $_POST['fname'];

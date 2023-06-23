@@ -30,8 +30,8 @@
       <nav class="hidden md:block">
         <ul class="flex space-x-4">
           <li><a href="dashboard.php" class="hover:text-gray-300">Home</a></li>
-          <li><a href="dash_budget.php" class="hover:text-gray-300">Budgets</a></li>
-          <li><a href="dash_category.php" class="hover:text-gray-300">Category</a></li>
+          <li><a href="dash_budgets.php" class="hover:text-gray-300">Budgets</a></li>
+          <li><a href="dash_items.php" class="hover:text-gray-300">Items</a></li>
           <li><a href="dash_users.php" class="hover:text-gray-300">Users</a></li>
           <li>
             <button id="dropdownNavbarLink" data-dropdown-toggle="dropdownNavbar" class="flex items-center justify-between w-full py-2 pl-3 pr-4 text-white rounded md:border-0 md:p-0 md:w-auto"><?php echo $user_data['fname']." ".$user_data['lname'];?><svg class="w-5 h-5 ml-1" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg></button>

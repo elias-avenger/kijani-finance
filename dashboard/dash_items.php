@@ -1,22 +1,58 @@
 <?php include 'includes/header.php' ?>
   <!-- Category Addition Content -->
   <div class="container mx-auto py-8 px-4">
-    <h2 class="text-3xl font-bold mb-4">Add Category</h2>
-
-    <div class="bg-white overflow-x-auto shadow-md rounded-md p-4">
-      <form id="categoryForm" class="max-w-lg mx-auto" action="submit_category.php" method="POST">
-        <div class="mb-4">
-          <label class="block text-gray-700 text-sm font-bold mb-2" for="categoryName">Category Name:</label>
-          <input class="appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="categoryName" name="categoryName" type="text" placeholder="Enter category name" required>
+    <div class="bg-white overflow-x-auto shadow-md rounded-md p-4 mb-2">
+      <h2 class="text-3xl font-bold mb-4">Add Item Category</h2>
+      <form id="categoryForm" class="mx-auto flex " action="../controllers/submit.php" method="POST">
+        <div class="mr-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="cat-name">Category Name:</label>
+          <input class="border rounded w-full py-2 px-3 text-gray-700 focus:shadow-outline" id="categoryName" name="cat-name" type="text" placeholder="Enter category name" required>
         </div>
-        <div class="flex items-center justify-between">
-          <button class="bg-green-800 hover:bg-green-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-            Add Category
-          </button>
+        <div class="mr-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="description">Description:</label>
+          <textarea name="description" id="" cols="40" rows="3" class="border rounded w-full py-2 px-3 text-gray-700 focus:shadow-outline"></textarea>
+        </div>
+        <div class="flex items-center ml-4">
+          <input type="submit" value="Add Category" name="add-category" class="bg-green-800 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:shadow-outline">
         </div>
       </form>
     </div>
 
+    <div class="bg-white overflow-x-auto shadow-md rounded-md p-4">
+      <h2 class="text-3xl font-bold mb-4">Add new Item</h2>
+      <form class="mx-auto flex " action="../controllers/submit.php" method="POST">
+        <div class="mr-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="i-name">Item Name:</label>
+          <input class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="i-name" name="i-name" type="text" placeholder="Enter Item name" required>
+        </div>
+        <div class="mr-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="description">Item Description:</label>
+          <textarea name="description" id="" cols="40" rows="3" class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+        </div>
+        <div class="mr-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="unit">Unit:</label>
+          <input class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="unit" name="unit" type="text" required>
+        </div>
+        <div class="mr-4">
+          <label class="block text-gray-700 text-sm font-bold mb-2" for="category">Item Category:</label>
+          <select class="border rounded w-full py-2 px-3 text-gray-700" name="category" required>
+            <option value="">Select Category</option>
+            <?php
+              $categories = getData('item_categories');
+              foreach($categories as $category){
+                ?>
+                <option value="<?php echo $category['id'];?>"><?php echo $category['name'];?></option>
+                <?php
+              }
+            ?>
+          </select>
+        </div>
+        <div class="flex items-center ml-4">
+        <input type="submit" value="Add Item" name="add-item" class="bg-green-800 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:shadow-outline">
+        </div>
+      </form>
+    </div>
+    <?php include "../controllers/msg.php";?>
     <h2 class="text-2xl font-bold mt-8 mb-4">Existing Categories</h2>
     <div class="flex flex-col md:flex-row gap-4 md:space-x-4">
       <div class="w-full md:w-1/3">
