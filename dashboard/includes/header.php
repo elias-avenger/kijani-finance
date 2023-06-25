@@ -26,7 +26,7 @@
   <!-- Header -->
   <header class="bg-gray-900 text-white p-4" style="background-color: #235F3D;">
     <div class="container mx-auto flex justify-between items-center">
-      <h1 class="text-2xl font-bold">Dashboard</h1>
+      <a href="#"><img src="../images/logo-1.png" alt="" class="h-8"></a>
       <nav class="hidden md:block">
         <ul class="flex space-x-4">
           <li><a href="dashboard.php" class="hover:text-gray-300">Home</a></li>
