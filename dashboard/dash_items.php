@@ -1,40 +1,42 @@
 <?php include 'includes/header.php' ?>
   <!-- Category Addition Content -->
   <div class="container mx-auto py-8 px-4">
-    <div class="bg-white overflow-x-auto shadow-md rounded-md p-4 mb-2">
-      <h2 class="text-3xl font-bold mb-4">Add Item Category</h2>
-      <form id="categoryForm" class="mx-auto flex " action="../controllers/submit.php" method="POST">
-        <div class="mr-4">
-          <label class="block text-gray-700 text-sm font-bold mb-2" for="cat-name">Category Name:</label>
-          <input class="border rounded w-full py-2 px-3 text-gray-700 focus:shadow-outline" id="categoryName" name="cat-name" type="text" placeholder="Enter category name" required>
+      <button data-modal-target="categoryModal" data-modal-toggle="categoryModal" class="bg-green-900 px-4 py-2 text-white rounded-lg">Add Category</button>
+      <div class="hidden fixed z-50 bg-green-900 overflow-x-auto shadow-md rounded-md p-4  mb-2 text-white" id="categoryModal">
+        <form id="" class="mx-auto flex " action="../controllers/submit.php" method="POST">
+          <div class="mr-4">
+            <label class="block text-gray-100 text-sm font-bold mb-2" for="cat-name">Category Name:</label>
+            <input class="border rounded w-full py-2 px-3 text-gray-700 focus:shadow-outline" id="categoryName" name="cat-name" type="text" placeholder="Enter category name" required>
+          </div>
+          <div class="mr-4">
+            <label class="block text-gray-100 text-sm font-bold mb-2" for="description">Description:</label>
+            <textarea name="description" id="" cols="40" rows="3" class="border rounded w-full py-2 px-3 text-gray-700 focus:shadow-outline"></textarea>
+          </div>
+          <div class="flex items-center ml-4">
+            <input type="submit" value="Add Category" name="add-category" class="bg-green-800 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:shadow-outline">
+          </div>
+        </form>
+        <div class="absolute right-0 top-0 p-1">
+          <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm ml-auto inline-flex items-start dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="categoryModal">
+            <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+          </button>
         </div>
-        <div class="mr-4">
-          <label class="block text-gray-700 text-sm font-bold mb-2" for="description">Description:</label>
-          <textarea name="description" id="" cols="40" rows="3" class="border rounded w-full py-2 px-3 text-gray-700 focus:shadow-outline"></textarea>
-        </div>
-        <div class="flex items-center ml-4">
-          <input type="submit" value="Add Category" name="add-category" class="bg-green-800 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:shadow-outline">
-        </div>
-      </form>
-    </div>
+      </div>
 
-    <div class="bg-white overflow-x-auto shadow-md rounded-md p-4">
-      <h2 class="text-3xl font-bold mb-4">Add new Item</h2>
+
+    <button data-modal-target="itemModal" data-modal-toggle="itemModal" class="bg-green-900 px-4 py-2 text-white rounded-lg">Add Item</button> 
+    <div class="hidden fixed z-50 bg-green-900 overflow-x-auto shadow-md rounded-md p-4" id="itemModal">
       <form class="mx-auto flex " action="../controllers/submit.php" method="POST">
         <div class="mr-4">
-          <label class="block text-gray-700 text-sm font-bold mb-2" for="i-name">Item Name:</label>
           <input class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="i-name" name="i-name" type="text" placeholder="Enter Item name" required>
         </div>
         <div class="mr-4">
-          <label class="block text-gray-700 text-sm font-bold mb-2" for="description">Item Description:</label>
-          <textarea name="description" id="" cols="40" rows="3" class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"></textarea>
+          <textarea name="description" id="" cols="40" rows="3" class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter item Description"></textarea>
         </div>
         <div class="mr-4">
-          <label class="block text-gray-700 text-sm font-bold mb-2" for="unit">Unit:</label>
-          <input class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="unit" name="unit" type="text" required>
+          <input class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="unit" name="unit" type="text" placeholder="Units" required>
         </div>
         <div class="mr-4">
-          <label class="block text-gray-700 text-sm font-bold mb-2" for="category">Item Category:</label>
           <select class="border rounded w-full py-2 px-3 text-gray-700" name="category" required>
             <option value="">Select Category</option>
             <?php
@@ -51,6 +53,11 @@
         <input type="submit" value="Add Item" name="add-item" class="bg-green-800 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:shadow-outline">
         </div>
       </form>
+      <div class="absolute right-0 top-0">
+        <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm ml-auto inline-flex items-start dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="itemModal">
+          <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+        </button>
+      </div>
     </div>
     <?php include "../controllers/msg.php";?>
     <h2 class="text-2xl font-bold mt-8 mb-4">Existing Categories</h2>
