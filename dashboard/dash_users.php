@@ -191,8 +191,8 @@
                     </div>
                     <div class="mt-4">
                       <label for="role" class="block">Role:</label>
-                      <input type="radio" name="role" id="roleA" value="A" class="border-2 border-green-900 rounded-md p-1" required> Admin
-                      <input type="radio" name="role" id="roleB" value="B" class="border-2 border-green-900 rounded-md p-1" required> Budgeting
+                      <input type="radio" name="role" id="roleA" value="A" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" required> Admin
+                      <input type="radio" name="role" id="roleB" value="B" class="w-4 h-4 text-green-600 bg-gray-100 border-gray-300 focus:ring-green-500 dark:focus:ring-green-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" required> Budgeting
                     </div>
                     <div class="mt-4">
                       <input type="submit" class="w-full bg-green-900 text-white px-4 py-2 rounded-md hover:bg-green-600" name="add-user" value="Add User">
