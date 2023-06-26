@@ -44,7 +44,8 @@
                     <td class="p-2"><?php echo $dpt;?></td>
                     <td class="flex gap-4 p-2">
                       <a href="#"><img src="../images/edit_black_24dp.svg" alt="edit" id="pencil<?php echo $uid;?>"></a>
-                        <button type="button" data-modal-target=" deleteModal" data-modal-toggle="deleteModal">
+                      <!-- delete button -->
+                        <button type="button" data-modal-target="deleteModal" data-modal-toggle="deleteModal">
                           <img src="../images/delete_black_24dp.svg" alt="delete">
                         </button>
                         <!-- delete modal -->
