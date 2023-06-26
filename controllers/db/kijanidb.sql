@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 21, 2023 at 01:09 PM
+-- Generation Time: Jun 26, 2023 at 04:24 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -42,15 +42,16 @@ CREATE TABLE `budgeting_entities` (
 
 CREATE TABLE `budgets` (
   `id` int(6) UNSIGNED ZEROFILL NOT NULL,
-  `budget_item` int(3) UNSIGNED ZEROFILL NOT NULL,
   `quantity` double(6,1) NOT NULL,
   `cost` double(8,2) NOT NULL,
   `_from` date NOT NULL,
   `_to` date NOT NULL,
+  `budget_no` varchar(45) DEFAULT NULL,
   `submitted_on` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
-  `budgeting_entity` int(2) UNSIGNED ZEROFILL NOT NULL,
   `incharge` int(5) UNSIGNED ZEROFILL NOT NULL,
-  `submitted_by` int(5) UNSIGNED ZEROFILL NOT NULL
+  `submitted_by` int(5) UNSIGNED ZEROFILL NOT NULL,
+  `entity` int(2) UNSIGNED ZEROFILL NOT NULL,
+  `item` int(3) UNSIGNED ZEROFILL NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -62,8 +63,20 @@ CREATE TABLE `budgets` (
 CREATE TABLE `budget_items` (
   `id` int(3) UNSIGNED ZEROFILL NOT NULL,
   `name` varchar(45) NOT NULL,
+  `description` text DEFAULT NULL,
   `unit` varchar(20) DEFAULT NULL,
-  `item_category` int(10) UNSIGNED ZEROFILL NOT NULL
+  `category` int(2) UNSIGNED ZEROFILL NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `entity_has_item`
+--
+
+CREATE TABLE `entity_has_item` (
+  `entity` int(2) UNSIGNED ZEROFILL NOT NULL,
+  `item` int(3) UNSIGNED ZEROFILL NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -73,9 +86,27 @@ CREATE TABLE `budget_items` (
 --
 
 CREATE TABLE `item_categories` (
-  `id` int(10) UNSIGNED ZEROFILL NOT NULL,
+  `id` int(2) UNSIGNED ZEROFILL NOT NULL,
   `name` varchar(45) NOT NULL,
   `description` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `requisitions`
+--
+
+CREATE TABLE `requisitions` (
+  `id` int(8) UNSIGNED NOT NULL,
+  `req_date` timestamp NOT NULL DEFAULT current_timestamp(),
+  `req_by` int(5) DEFAULT NULL,
+  `req_no` varchar(20) DEFAULT NULL,
+  `quantity` double(6,1) DEFAULT NULL,
+  `price` double(8,2) DEFAULT NULL,
+  `invoice` varchar(45) DEFAULT NULL,
+  `entity` int(2) UNSIGNED ZEROFILL NOT NULL,
+  `item` int(3) UNSIGNED ZEROFILL NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -115,22 +146,36 @@ ALTER TABLE `budgeting_entities`
 --
 ALTER TABLE `budgets`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_budgets_budget_items1_idx` (`budget_item`),
-  ADD KEY `fk_budgets_budgeting_entities1_idx` (`budgeting_entity`),
-  ADD KEY `fk_budgets_users1_idx` (`submitted_by`);
+  ADD KEY `fk_budgets_users1_idx` (`submitted_by`),
+  ADD KEY `fk_budgets_entity_has_item1_idx` (`entity`,`item`);
 
 --
 -- Indexes for table `budget_items`
 --
 ALTER TABLE `budget_items`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `fk_budget_items_item_categories1_idx` (`item_category`);
+  ADD KEY `fk_budget_items_item_categories1_idx` (`category`);
+
+--
+-- Indexes for table `entity_has_item`
+--
+ALTER TABLE `entity_has_item`
+  ADD PRIMARY KEY (`entity`,`item`),
+  ADD KEY `fk_budgeting_entities_has_budget_items_budget_items1_idx` (`item`),
+  ADD KEY `fk_budgeting_entities_has_budget_items_budgeting_entities1_idx` (`entity`);
 
 --
 -- Indexes for table `item_categories`
 --
 ALTER TABLE `item_categories`
   ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `requisitions`
+--
+ALTER TABLE `requisitions`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `fk_requisitions_entity_has_item1_idx` (`entity`,`item`);
 
 --
 -- Indexes for table `users`
@@ -164,7 +209,13 @@ ALTER TABLE `budget_items`
 -- AUTO_INCREMENT for table `item_categories`
 --
 ALTER TABLE `item_categories`
-  MODIFY `id` int(10) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(2) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `requisitions`
+--
+ALTER TABLE `requisitions`
+  MODIFY `id` int(8) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `users`
@@ -186,15 +237,27 @@ ALTER TABLE `budgeting_entities`
 -- Constraints for table `budgets`
 --
 ALTER TABLE `budgets`
-  ADD CONSTRAINT `fk_budgets_budget_items1` FOREIGN KEY (`budget_item`) REFERENCES `budget_items` (`id`) ON UPDATE NO ACTION,
-  ADD CONSTRAINT `fk_budgets_budgeting_entities1` FOREIGN KEY (`budgeting_entity`) REFERENCES `budgeting_entities` (`id`) ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_budgets_entity_has_item1` FOREIGN KEY (`entity`,`item`) REFERENCES `entity_has_item` (`entity`, `item`) ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_budgets_users1` FOREIGN KEY (`submitted_by`) REFERENCES `users` (`id`) ON UPDATE NO ACTION;
 
 --
 -- Constraints for table `budget_items`
 --
 ALTER TABLE `budget_items`
-  ADD CONSTRAINT `fk_budget_items_item_categories1` FOREIGN KEY (`item_category`) REFERENCES `item_categories` (`id`) ON UPDATE NO ACTION;
+  ADD CONSTRAINT `fk_budget_items_item_categories1` FOREIGN KEY (`category`) REFERENCES `item_categories` (`id`) ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `entity_has_item`
+--
+ALTER TABLE `entity_has_item`
+  ADD CONSTRAINT `fk_budgeting_entities_has_budget_items_budget_items1` FOREIGN KEY (`item`) REFERENCES `budget_items` (`id`) ON UPDATE NO ACTION,
+  ADD CONSTRAINT `fk_budgeting_entities_has_budget_items_budgeting_entities1` FOREIGN KEY (`entity`) REFERENCES `budgeting_entities` (`id`) ON UPDATE NO ACTION;
+
+--
+-- Constraints for table `requisitions`
+--
+ALTER TABLE `requisitions`
+  ADD CONSTRAINT `fk_requisitions_entity_has_item1` FOREIGN KEY (`entity`,`item`) REFERENCES `entity_has_item` (`entity`, `item`) ON UPDATE NO ACTION;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
