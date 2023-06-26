@@ -53,7 +53,7 @@
                     </select>
                 </div>
                 <div class="mr-4" style="display: flex; flex-direction:column; color:white">
-                    <label>Select where it applies:</label>
+                    <label class="text-xl">Select where it applies:</label>
                     <?php
                     foreach($entities as $entity){
                         ?>
