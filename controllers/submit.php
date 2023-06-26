@@ -34,8 +34,18 @@
         $d = $_POST['description'];
         $u = $_POST['unit'];
         $c = $_POST['category'];
+        $entities = $_POST['entity'];
+        var_dump($entities);
+        
         $qry = "INSERT INTO budget_items SET name= '$n', description = '$d', unit = '$u', category = '$c'";
         addData($qry);
+        $i_qry = "SELECT id FROM budget_items WHERE id IN(SELECT MAX(id) FROM budget_items)";
+        $item = mysqli_fetch_array(specialNoResult($i_qry));
+        $i_id = $item['id'];
+        foreach($entities as $e){
+            $q = "INSERT INTO entity_has_item SET entity = '$e', item = '$i_id'";
+            addData($q);
+        }
         $_SESSION['msg'] = "success";
         header("location: ../dashboard/dash_items.php");
     }

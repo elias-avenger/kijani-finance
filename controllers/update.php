@@ -15,9 +15,10 @@
         $uqry = "UPDATE users SET fname = '$fn', lname='$ln', email='$el', phone='$pn', type='$tp', last_updated='$date', last_updated_by='$user_id' WHERE id='$id'";
         update($uqry);
         if($dt != ''){
-        $eqry = "UPDATE budgeting_entity SET incharge='$id' WHERE id='$dt'";
+        $eqry = "UPDATE budgeting_entities SET incharge='$id' WHERE id='$dt'";
         update($eqry);
         }
+        $_SESSION['msg'] = "updated";
         header("location: ../dashboard/dash_users.php");
     }
 ?>

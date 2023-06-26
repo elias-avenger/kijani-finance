@@ -52,4 +52,11 @@
         $query = $conn->prepare($sql);
         $query->execute();
     }
+    function specialNoResult($sql){
+        global $conn;
+        $query = $conn -> prepare($sql);
+        $query -> execute();
+        $result = $query->get_result();
+        return $result;
+    }
 ?>

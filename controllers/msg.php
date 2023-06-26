@@ -29,6 +29,18 @@
       $clr = 'red-700';
       $msg = "User account with the same <u>email</u> already exists!";
     }
+    elseif($type == "deleted"){
+      $clr = 'green-700';
+      $msg = "Deleted successfuly!";
+    }
+    elseif($type == "updated"){
+      $clr = 'green-700';
+      $msg = "Updated successfuly!";
+    }
+    elseif($type == "delete_f"){
+      $clr = 'red-700';
+      $msg = "Delete action failed: What you want to delete should be referenced ...!";
+    }
     ?>
     <div id="msg-box" class="mb-4 bg-white text-<?php echo $clr;?> font-bold">
         <?php echo $msg;?>
