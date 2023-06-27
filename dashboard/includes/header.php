@@ -19,6 +19,7 @@
   <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
   
 </head>
 
@@ -30,7 +31,7 @@
       <nav class="hidden md:block">
         <ul class="flex space-x-4">
           <li><a href="dashboard.php" class="hover:text-gray-300">Home</a></li>
-          <li><a href="dash_budgets.php" class="hover:text-gray-300">Budgets</a></li>
+          <li><a href="dash_budget.php" class="hover:text-gray-300">Budgets</a></li>
           <li><a href="dash_items.php" class="hover:text-gray-300">Items</a></li>
           <li><a href="dash_users.php" class="hover:text-gray-300">Users</a></li>
           <li>

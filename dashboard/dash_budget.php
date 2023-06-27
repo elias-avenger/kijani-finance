@@ -30,10 +30,10 @@
               <td class="p-2">Week 14</td>
               <td class="p-2">$1000</td>
               <td class="p-2">
-                <span class="bg-red-100 text-red-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Not Approved</span>
+                <span class="bg-red-500 text-white text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Not Approved</span>
               </td>
               <td class="flex gap-4 p-2">
-                <a href="#" data-tooltip-target="tooltip-bottom" data-tooltip-placement="bottom" type="button"><img src="visibility_black_24dp.svg" alt="edit"></a>
+                <a href="#" data-tooltip-target="tooltip-bottom" data-tooltip-placement="bottom" type="button"><img src="visibility_black_24dp.svg" alt="view"></a>
                 <div id="tooltip-bottom" role="tooltip" class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-green-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
                   View budget
                   <div class="tooltip-arrow" data-popper-arrow></div>
@@ -48,7 +48,7 @@
               <td class="p-2">Week 14</td>
               <td class="p-2">$1000</td>
               <td class="p-2">
-                <span class="bg-green-100 text-green-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Approved</span>
+                <span class="bg-green-900 text-white text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Approved</span>
               </td>
               <td class="flex gap-4 p-2">
                 <a href="#"><img src="visibility_black_24dp.svg" alt="edit"></a>
@@ -74,3 +74,6 @@
       </div>
     </div>
   </div>
+<?php 
+  include 'includes/footer.php';
+?>
