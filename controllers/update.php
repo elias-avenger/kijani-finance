@@ -7,7 +7,10 @@
         $id = $_POST['uid'];
         $full_name = explode(" ", $_POST['full-name']);
         $fn = $full_name[0];
-        $ln = $full_name[1];
+        if($full_name[2] > "") 
+            $ln = $full_name[1]." ".$full_name[2];
+        else
+            $ln = $full_name[1];
         $el = $_POST['email'];
         $pn = $_POST['phone'];
         $tp = $_POST['type'];
