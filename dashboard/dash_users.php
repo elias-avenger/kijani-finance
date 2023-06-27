@@ -47,12 +47,12 @@
                     <td class="flex gap-4 p-2">
                       <a href="#"><img src="../images/edit_black_24dp.svg" alt="edit" id="pencil<?php echo $uid;?>"></a>
                       <!-- delete button -->
-                        <button type="button" data-modal-target="deleteModal" data-modal-toggle="deleteModal">
+                        <?php $model = 'user';?>
+                        <button type="button" data-modal-target="delete<?php echo $model;?>Modal" data-modal-toggle="delete<?php echo $model;?>Modal">
                           <img src="../images/delete_black_24dp.svg" alt="delete">
                         </button>
                         <!-- delete modal -->
                         <?php
-                          $model = 'user';
                           deleteModel($model, $user['id']);
                         ?>
                     </td>
@@ -241,7 +241,11 @@
           </div>
         </div>
         
-        <div class="w-full md:w-1/3">
+        
+
+      </div>
+    </div>
+    <div class="w-full md:w-1/3">
         <div class="bg-white  shadow-md rounded-md p-4">
           <h3 class="text-xl font-bold mb-4">Departments</h3>
           <table class="">
@@ -291,9 +295,6 @@
           </table>
         </div>
       </div>
-
-      </div>
-    </div>
   </div>
   <?php include 'includes/footer.php' ?>
   <!-- <script src="../user_edit.js"></script> -->
