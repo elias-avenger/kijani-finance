@@ -46,6 +46,11 @@
                 header("location: ../dashboard/$page.php");
             }
         }
+        else{
+            delete($table, $i);
+            $_SESSION['msg'] = "deleted";
+            header("location: ../dashboard/$page.php");
+        }
                 
     }  
     

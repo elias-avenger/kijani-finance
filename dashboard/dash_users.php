@@ -240,6 +240,58 @@
             </div>
           </div>
         </div>
+        
+        <div class="w-full md:w-1/3">
+        <div class="bg-white  shadow-md rounded-md p-4">
+          <h3 class="text-xl font-bold mb-4">Departments</h3>
+          <table class="">
+            <thead>
+              <tr class="text-center">
+                <th class="py-2">Department Name</th>
+                <th class="py-2">Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="p-2">Department 1</td>
+                <td class="p-2">
+                  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Edit</button>
+                  <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Delete</button>
+                </td>
+              </tr>
+              <tr>
+                <td class="p-2">Department 2</td>
+                <td class="p-2">
+                  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Edit</button>
+                  <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Delete</button>
+                </td>
+              </tr>
+              <tr>
+                <td class="p-2">Department 3</td>
+                <td class="p-2">
+                  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Edit</button>
+                  <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Delete</button>
+                </td>
+              </tr>
+              <tr>
+                <td class="p-2">Department 4</td>
+                <td class="p-2">
+                  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Edit</button>
+                  <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Delete</button>
+                </td>
+              </tr>
+              <tr>
+                <td class="p-2">Department 5</td>
+                <td class="p-2">
+                  <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Edit</button>
+                  <button class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Delete</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
       </div>
     </div>
   </div>
