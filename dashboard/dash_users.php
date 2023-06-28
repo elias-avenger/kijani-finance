@@ -41,7 +41,17 @@
                   <td class="p-2"><?php echo $user['fname']." ".$user['lname'];?></td>
                   <td class="p-2"><?php echo $user['email'];?></td>
                   <td class="p-2"><?php echo $user['phone'];?></td>
-                  <td class="p-2"><?php echo ($user['type'] === 'A'? "Admin": "Budgeting");?></td>
+                  <td class="p-2">
+                    <?php 
+                      $t = $user['type'];
+                      if($t === 'A') 
+                        echo "Admin"; 
+                      elseif($t === 'B') 
+                        echo "Budgeting"; 
+                      elseif($t === 'C') 
+                      echo "Budget Approving";
+                    ?>
+                  </td>
                   <td class="p-2"><?php echo $dpt;?></td>
                   <td class="flex gap-4 p-2">
                     <a href="#"><img src="../images/edit_black_24dp.svg" alt="edit" id="pencil<?php echo $uid;?>"></a>
@@ -80,7 +90,15 @@
                           foreach($types as $type){
                             ?>
                             <option value="<?php echo $type['type'];?>">
-                              <?php echo $type['type']==='A'?'Admin':'Budgeting';?>
+                              <?php 
+                                $te = $user['type'];
+                                if($te === 'A') 
+                                  echo "Admin"; 
+                                elseif($te === 'B') 
+                                  echo "Budgeting"; 
+                                elseif($te === 'C') 
+                                echo "Budget Approving";
+                              ?>
                             </option>
                             <?php
                           }
