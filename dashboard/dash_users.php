@@ -91,7 +91,7 @@
                             ?>
                             <option value="<?php echo $type['type'];?>">
                               <?php 
-                                $te = $user['type'];
+                                $te = $type['type'];
                                 if($te === 'A') 
                                   echo "Admin"; 
                                 elseif($te === 'B') 
