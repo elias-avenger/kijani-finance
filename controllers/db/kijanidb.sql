@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 26, 2023 at 04:24 PM
+-- Generation Time: Jul 04, 2023 at 04:15 PM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 8.1.10
 
@@ -44,14 +44,13 @@ CREATE TABLE `budgets` (
   `id` int(6) UNSIGNED ZEROFILL NOT NULL,
   `quantity` double(6,1) NOT NULL,
   `cost` double(8,2) NOT NULL,
-  `_from` date NOT NULL,
-  `_to` date NOT NULL,
   `budget_no` varchar(45) DEFAULT NULL,
   `submitted_on` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `incharge` int(5) UNSIGNED ZEROFILL NOT NULL,
   `submitted_by` int(5) UNSIGNED ZEROFILL NOT NULL,
   `entity` int(2) UNSIGNED ZEROFILL NOT NULL,
-  `item` int(3) UNSIGNED ZEROFILL NOT NULL
+  `item` int(3) UNSIGNED ZEROFILL NOT NULL,
+  `period` int(5) UNSIGNED ZEROFILL NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -66,6 +65,20 @@ CREATE TABLE `budget_items` (
   `description` text DEFAULT NULL,
   `unit` varchar(20) DEFAULT NULL,
   `category` int(2) UNSIGNED ZEROFILL NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `budget_period`
+--
+
+CREATE TABLE `budget_period` (
+  `id` int(5) UNSIGNED ZEROFILL NOT NULL,
+  `name` varchar(25) NOT NULL,
+  `_from` date NOT NULL,
+  `_to` date NOT NULL,
+  `type` char(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
@@ -147,7 +160,8 @@ ALTER TABLE `budgeting_entities`
 ALTER TABLE `budgets`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_budgets_users1_idx` (`submitted_by`),
-  ADD KEY `fk_budgets_entity_has_item1_idx` (`entity`,`item`);
+  ADD KEY `fk_budgets_entity_has_item1_idx` (`entity`,`item`),
+  ADD KEY `fk_budgets_budget_period1_idx` (`period`);
 
 --
 -- Indexes for table `budget_items`
@@ -155,6 +169,12 @@ ALTER TABLE `budgets`
 ALTER TABLE `budget_items`
   ADD PRIMARY KEY (`id`),
   ADD KEY `fk_budget_items_item_categories1_idx` (`category`);
+
+--
+-- Indexes for table `budget_period`
+--
+ALTER TABLE `budget_period`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `entity_has_item`
@@ -206,6 +226,12 @@ ALTER TABLE `budget_items`
   MODIFY `id` int(3) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `budget_period`
+--
+ALTER TABLE `budget_period`
+  MODIFY `id` int(5) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `item_categories`
 --
 ALTER TABLE `item_categories`
@@ -237,6 +263,7 @@ ALTER TABLE `budgeting_entities`
 -- Constraints for table `budgets`
 --
 ALTER TABLE `budgets`
+  ADD CONSTRAINT `fk_budgets_budget_period1` FOREIGN KEY (`period`) REFERENCES `budget_period` (`id`) ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_budgets_entity_has_item1` FOREIGN KEY (`entity`,`item`) REFERENCES `entity_has_item` (`entity`, `item`) ON UPDATE NO ACTION,
   ADD CONSTRAINT `fk_budgets_users1` FOREIGN KEY (`submitted_by`) REFERENCES `users` (`id`) ON UPDATE NO ACTION;
 
