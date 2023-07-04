@@ -59,4 +59,20 @@
         $result = $query->get_result();
         return $result;
     }
+    function selectCountWhere($table, $field, $val){
+        global $conn;
+        $sql = "SELECT COUNT(id) FROM $table WHERE $field = '$val'";
+        $query = $conn->prepare($sql);
+        $query->execute();
+        $result = $query->get_result()->fetch_column();
+        return $result;
+    }
+    function selectMAx($table, $field){
+        global $conn;
+        $sql = "SELECT MAX($field) FROM $table";
+        $query = $conn->prepare($sql);
+        $query->execute();
+        $result = $query->get_result()->fetch_column();
+        return $result;
+    }
 ?>

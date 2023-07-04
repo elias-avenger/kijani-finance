@@ -51,11 +51,13 @@
     }
     if(isset($_POST['add-bperiod'])){
         $p_t = $_POST['p-type'];
-        $pf = date_create($_POST['p-from']);
-        $pt = date_create($_POST['p-to']);
+        $p_from = $_POST['p-from'];
+        $p_to = $_POST['p-to'];
+        $pf = date_create($p_from);
+        $pt = date_create($p_to);
         $days = date_diff($pf, $pt)->format("%R%a");
-        echo "type: ".$p_t;
-        echo "<br>days: ".$days;
+        //echo "type: ".$p_t;
+        //echo "<br>days: ".$days;
         if(($p_t === 'W' & $days > 7) | ($p_t === 'F' & $days > 14))
         {
             $_SESSION['msg'] = "period-h";
@@ -66,7 +68,24 @@
             $_SESSION['msg'] = "period-l";
             header("location: ../dashboard/dash_budgets.php");
         }
+        $max_date = date_create(selectMAx('budget_period', '_to'));
+        $diff_prev = (int)date_diff($max_date, $pf)->format("%R%a");
+        //echo "<br>Diff From Prev: ".$diff_prev;
+        //var_dump($diff_prev);
+        if($diff_prev <= 0){
+            $_SESSION['msg'] = "period-o";
+            header("location: ../dashboard/dash_budgets.php");
+        }
+        $n = $p_t==='W'?"Week":"Fortnight";
+
+        $num = selectCountWhere('budget_period', 'type', $p_t);
         
+        $name = $n." - ".$num + 1;
+       
+        $qry = "INSERT INTO budget_period set name = '$name', _from = '$p_from', _to = '$p_to', type = '$p_t'";
+        addData($qry);
+        $_SESSION['msg'] = "success";
+        header("location: ../dashboard/dash_budgets.php");
     }
 
     function validateAndSubmitUser($tp){

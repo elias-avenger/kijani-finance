@@ -49,6 +49,10 @@
       $clr = 'red-700';
       $msg = "Period smaller than chosen period type. <br>Try Again!";
     }
+    elseif($type == "period-o"){
+      $clr = 'red-700';
+      $msg = "Period overlap detected. <br>Try Again!";
+    }
     else{
       $clr = 'red-700';
       $msg = "Error!<br>No message set.";
