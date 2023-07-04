@@ -2,7 +2,7 @@
     function deleteModel($model_name, $id){
         ?>
         <!-- delete modal -->
-        <div id="delete<?php echo $model_name;?>Modal" tabindex="-1" class="hidden fixed top-0 left-0 right-0 z-50 p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div id="delete<?php echo $model_name;?>Modal" data-modal-backdrop="static" tabindex="-1" class="hidden fixed top-0 left-0 right-0 z-50 p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
             <div class="relative w-full max-w-md max-h-full">
                 <div class="relative bg-green-900 rounded-lg shadow dark:bg-gray-700">
                     <button type="button" class="absolute top-3 right-2.5 text-white bg-transparent hover:bg-white hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-hide="delete<?php echo $model_name;?>Modal">
@@ -29,7 +29,7 @@
     
     function addItemModel($categories, $entities){
         ?>
-        <div class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full" id="itemModal">
+        <div class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full" id="itemModal" data-modal-backdrop="static">
             <div class="relative w-full max-w-md max-h-full">
                 <!-- Modal content -->
                 <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -87,7 +87,7 @@
 
     function addCategoryModel(){
         ?>
-        <div class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full" id="categoryModal">
+        <div class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full" id="categoryModal" data-modal-backdrop="static">
             <div class="relative w-full max-w-md max-h-full">
                 <!-- Modal content -->
                 <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -120,7 +120,7 @@
 
     function addUserModel(){
         ?>
-        <div id="add-user-form" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden  w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div id="add-user-form" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden  w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
             <div class="relative w-full max-w-md max-h-full">
                 <!-- Modal content -->
                 <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -185,7 +185,7 @@
 
     function addDepartmentModel($users){
         ?>
-        <div id="departmentModal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+        <div id="departmentModal" data-modal-backdrop="static" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
           <div class="relative w-full max-w-md max-h-full">
             <!-- Modal content -->
             <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
@@ -235,31 +235,41 @@
 
     function addBPeriodModel(){
         ?>
-        <div class="hidden fixed z-50 bg-green-900 overflow-x-auto shadow-md rounded-md p-4  mb-2 text-white" id="bPeriodModal">
-            <form id="" class="mx-auto flex " action="../controllers/submit.php" method="POST">
-                <div class="mr-4">
-                    <label class="block text-gray-100 text-sm font-bold mb-2" for="period">Period Type:</label>
-                    <select class="border rounded w-full py-2 px-3 text-gray-700 focus:shadow-outline" id="b-period" name="p-type" required>
-                        <option value="W">Weekly</option>
-                        <option value="F">Fortnightly</option>
-                    </select>
+        <div class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full" id="bPeriodModal" data-modal-backdrop="static">
+            <div class="relative w-full max-w-md max-h-full">
+                <!-- Modal content -->
+                <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
+                    <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="bPeriodModal">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                    <div class="px-6 py-6 lg:px-8">
+                        <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Budgeting Period</h3> 
+            
+                        <form id="" class="mx-auto flex  flex-col" action="../controllers/submit.php" method="POST">
+                            <div class="mr-4">
+                                <label class="block text-sm font-bold mb-2" for="period">Period Type:</label>
+                                <select class="border rounded w-full py-2 px-3 text-gray-700 focus:shadow-outline" id="b-period" name="p-type" required>
+                                    <option value="W">Weekly</option>
+                                    <option value="F">Fortnightly</option>
+                                </select>
+                            </div>
+                            <div class="mr-4">
+                                <label for="p-from" class="block">From:</label>
+                                <input type="date" name="p-from" id="p-from" class="border rounded w-full py-2 px-3 text-gray-700 focus:shadow-outline" required>
+                            </div>
+                            <div class="mr-4">
+                                <label for="p-to" class="block">To:</label>
+                                <input type="date" name="p-to" id="p-to" class="border rounded w-full py-2 px-3 text-gray-700 focus:shadow-outline" required>
+                            </div>
+                            <div class="flex items-center mt-4">
+                                <input type="submit" value="Add Period" name="add-bperiod" class="w-full bg-green-800 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:shadow-outline">
+                            </div>
+                        </form>
+                    </div>
                 </div>
-                <div class="mr-4">
-                    <label for="p-from" class="block">From:</label>
-                    <input type="date" name="p-from" id="p-from" class="border rounded w-full py-2 px-3 text-gray-700 focus:shadow-outline" required>
-                </div>
-                <div class="mr-4">
-                    <label for="p-to" class="block">To:</label>
-                    <input type="date" name="p-to" id="p-to" class="border rounded w-full py-2 px-3 text-gray-700 focus:shadow-outline" required>
-                </div>
-                <div class="flex items-center ml-4">
-                    <input type="submit" value="Add Period" name="add-bperiod" class="bg-green-800 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:shadow-outline">
-                </div>
-            </form>
-            <div class="absolute right-0 top-0 p-1">
-                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm ml-auto inline-flex items-start dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="bPeriodModal">
-                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
-                </button>
             </div>
         </div>
         <?php

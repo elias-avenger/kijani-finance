@@ -14,12 +14,12 @@
         <table class="w-full">
           <thead>
             <tr>
-              <th class="p-2 text-center">Name</th>
-              <th class="p-2 text-center">Email</th>
-              <th class="p-2 text-center">Phone</th>
-              <th class="p-2 text-center">Role</th>
-              <th class="p-2 text-center">Department</th>
-              <th class="p-2 text-center">Actions</th>
+              <th class="p-2">Name</th>
+              <th class="p-2">Email</th>
+              <th class="p-2">Phone</th>
+              <th class="p-2">Role</th>
+              <th class="p-2">Department</th>
+              <th class="p-2">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -38,10 +38,10 @@
                 ?>
                 <!-- the row to display user information -->
                 <tr id="main-row<?php echo $uid;?>" style="display: table-row;">
-                  <td class="p-2 text-center"><?php echo $user['fname']." ".$user['lname'];?></td>
-                  <td class="p-2 text-center"><?php echo $user['email'];?></td>
-                  <td class="p-2 text-center"><?php echo $user['phone'];?></td>
-                  <td class="p-2 text-center">
+                  <td class="p-2"><?php echo $user['fname']." ".$user['lname'];?></td>
+                  <td class="p-2"><?php echo $user['email'];?></td>
+                  <td class="p-2"><?php echo $user['phone'];?></td>
+                  <td class="p-2">
                     <?php 
                       $t = $user['type'];
                       if($t === 'A') 
@@ -52,7 +52,7 @@
                       echo "Budget Approving";
                     ?>
                   </td>
-                  <td class="p-2 text-center"><?php echo $dpt;?></td>
+                  <td class="p-2"><?php echo $dpt;?></td>
                   <td class="flex justify-center gap-4 p-2">
                     <!-- edit button -->
                     <button type="button">
@@ -137,34 +137,3 @@
   </div>
 </div>
 <?php include 'includes/footer.php' ?>
-<!-- <script src="../user_edit.js"></script> -->
-<!-- <script>
-  // Accessing elements using their IDs
-  <?php foreach ($users as $user): ?>
-      var main_row<?php echo $user['id']; ?> = document.getElementById('main-row<?php echo $user['id']; ?>');
-      var edit_row<?php echo $user['id']; ?> = document.getElementById('edit-row<?php echo $user['id']; ?>');
-      var p<?php echo $user['id']; ?> = document.getElementById('pencil<?php echo $user['id']; ?>');
-      p<?php echo $user['id']; ?>.addEventListener('click', function() {
-          // Perform some action when the button is clicked
-          main_row<?php echo $user['id']; ?>.style.display = 'none';
-          edit_row<?php echo $user['id']; ?>.style.display = 'table-row';
-      });
-  <?php endforeach; ?>
-  // toggling between showing the add-user-form and add-entity-form
-  //variables for add-user button and form elements
-  // let u_a_btn = document.getElementById('add-user-btn');
-  // let u_a_frm = document.getElementById('add-user-form');
-  // //variables for add-entity button and form elements 
-  // let u_e_btn = document.getElementById('add-entity-btn');
-  // let u_e_frm = document.getElementById('add-entity-form');
-  // //show the add-user form and hide the add-entity one when add-user button is clicked
-  // u_a_btn.addEventListener('click', function(){
-  //   u_a_frm.style.display = 'block';
-  //   u_e_frm.style.display = 'none';
-  // });
-  // //show the add-entity form and hide the add-user one when add-entity button is clicked
-  // u_e_btn.addEventListener('click', function(){
-  //   u_e_frm.style.display = 'block';
-  //   u_a_frm.style.display = 'none';
-  // });
-</script> -->

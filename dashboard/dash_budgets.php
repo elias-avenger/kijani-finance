@@ -4,7 +4,7 @@
   include "../controllers/msg.php";
 ?>
  <!-- Budgets Content -->
- <div class="container mx-auto py-8">
+  <div class="container mx-auto py-8">
     <h2 class="text-3xl font-bold mb-4">Budgets</h2>
 
     <!-- Budget Control Panel -->
