@@ -41,6 +41,18 @@
       $clr = 'red-700';
       $msg = "Delete action failed: What you want to delete should be referenced ...!";
     }
+    elseif($type == "period-h"){
+      $clr = 'red-700';
+      $msg = "Period bigger than chosen period type. <br>Try Again!";
+    }
+    elseif($type == "period-l"){
+      $clr = 'red-700';
+      $msg = "Period smaller than chosen period type. <br>Try Again!";
+    }
+    else{
+      $clr = 'red-700';
+      $msg = "Error!<br>No message set.";
+    }
     ?>
     <div class="flex flex-col items-center">
       <div id="msg-box" class="m-x-auto flex p-4 mt-4 mb-4 text-white border-2 border-t-4 rounded-lg border-<?php echo $clr;?> bg-<?php echo $clr;?>" role="alert">
