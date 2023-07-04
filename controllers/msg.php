@@ -39,7 +39,7 @@
     }
     elseif($type == "delete_f"){
       $clr = 'red-700';
-      $msg = "Delete action failed: What you want to delete should be referenced ...!";
+      $msg = "Can't Delete: What you want to delete should be referenced ...!";
     }
     elseif($type == "period-h"){
       $clr = 'red-700';
