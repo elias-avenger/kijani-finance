@@ -3,7 +3,7 @@
   include "../controllers/models.php";
   include "../controllers/msg.php";           
 ?>
-<!-- Dashboard Content -->
+<!-- Container -->
 <div class="container mx-auto py-8 px-4">
   <h2 class="text-3xl font-bold mb-4">Users</h2>
   <!-- User Control Panel -->
@@ -14,12 +14,12 @@
         <table class="w-full">
           <thead>
             <tr>
-              <th class="py-2">Name</th>
-              <th class="py-2">Email</th>
-              <th class="py-2">Phone</th>
-              <th class="py-2">Role</th>
-              <th class="py-2">Department</th>
-              <th class="py-2">Actions</th>
+              <th class="p-2">Name</th>
+              <th class="p-2">Email</th>
+              <th class="p-2">Phone</th>
+              <th class="p-2">Role</th>
+              <th class="p-2">Department</th>
+              <th class="p-2">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -54,7 +54,7 @@
                   </td>
                   <td class="p-2"><?php echo $dpt;?></td>
                   <td class="flex gap-4 p-2">
-                    <a href="#"><img src="../images/edit_black_24dp.svg" alt="edit" id="pencil<?php echo $uid;?>"></a>
+                    <button type="button"><img src="../images/edit_black_24dp.svg" alt="edit" data-modal-target="pencil<?php echo $uid;?>" data-modal-toggle="pencil<?php echo $uid;?>"></button>
                     <!-- delete button -->
                       <?php $model = 'user';?>
                       <button type="button" data-modal-target="delete<?php echo $model;?>Modal" data-modal-toggle="delete<?php echo $model;?>Modal">
@@ -66,72 +66,93 @@
                       ?>
                   </td>
                 </tr>
+          </tbody>
+        </table>
                 <!-- the row to display an edit form for user info -->
-                <tr id="edit-row<?php echo $uid;?>" style="display: none;">
-                  <form action="../controllers/update.php" method="POST">
-                    <input type="hidden" name="uid" value="<?php echo $user['id'];?>">
-                    <td class="p-2"">
-                      <input type="text" name="full-name" value="<?php echo $user['fname']." ".$user['lname'];?>" class="border-2 border-gray-300 rounded-md p-1">
-                    </td>
-                    <td class="p-2">
-                      <input type="text" name="email" value="<?php echo $user['email'];?>" class="border-2 border-gray-300 rounded-md p-1">
-                    </td>
-                    <td class="p-2">
-                      <input type="phone" name="phone" value="<?php echo $user['phone'];?>" class="border-2 border-gray-300 rounded-md p-1 w-[6.4rem]">
-                    </td>
-                    <td class="p-2">
-                      <select name="type" id="" required class="border-2 border-gray-300 rounded-md p-1">
-                        <option value="">
-                          Select Type
-                        </option>
-                        <?php 
-                          $qry = "SELECT DISTINCT type FROM users";
-                          $types = specialQuery($qry);
-                          foreach($types as $type){
-                            ?>
-                            <option value="<?php echo $type['type'];?>">
+                <!-- Edit modal starts here -->
+                <div id="pencil<?php echo $uid;?>" data-modal-backdrop="static" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+                  <div class="relative w-full max-w-md">
+
+                    <div class="relative bg-white rounded-lg shadow ">
+                      <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center" data-modal-hide="pencil<?php echo $uid;?>">
+                          <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                              <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                          </svg>
+                          <span class="sr-only">Close modal</span>
+                      </button>
+                      <div class="px-6 py-6 lg:px-8">
+                        <h3 class="mb-4 text-xl font-bold text-green-900">Edit User</h3>
+                        <form action="../controllers/update.php" method="POST" class="">
+                          <input type="hidden" name="uid" value="<?php echo $user['id'];?>">
+
+                          <div class="flex gap-2 p-2"">
+                            <input type="text" name="fname" value="<?php echo $user['fname'];?>" class="w-full border-2 border-gray-300 rounded-md p-1">
+                            <input type="text" name="lname" value="<?php echo $user['lname'];?>" class="w-full border-2 border-gray-300 rounded-md p-1">
+                          </div>
+
+                          <div class="p-2">
+                            <input type="text" name="email" value="<?php echo $user['email'];?>" class="w-full border-2 border-gray-300 rounded-md p-1">
+                          </div>
+
+                          <div class="p-2">
+                            <input type="phone" name="phone" value="<?php echo $user['phone'];?>" class="w-full border-2 border-gray-300 rounded-md p-1 w-[6.4rem]">
+                          </div>
+
+                          <div class="p-2">
+                            <select name="type" id="" required class="w-full border-2 border-gray-300 rounded-md p-1">
+                              <option value="">
+                                Select Type
+                              </option>
                               <?php 
-                                $te = $type['type'];
-                                if($te === 'A') 
-                                  echo "Admin"; 
-                                elseif($te === 'B') 
-                                  echo "Budgeting"; 
-                                elseif($te === 'C') 
-                                echo "Budget Approving";
+                                $qry = "SELECT DISTINCT type FROM users";
+                                $types = specialQuery($qry);
+                                foreach($types as $type){
+                                  ?>
+                                  <option value="<?php echo $type['type'];?>">
+                                    <?php 
+                                      $te = $type['type'];
+                                      if($te === 'A') 
+                                        echo "Admin"; 
+                                      elseif($te === 'B') 
+                                        echo "Budgeting"; 
+                                      elseif($te === 'C') 
+                                      echo "Budget Approving";
+                                    ?>
+                                  </option>
+                                  <?php
+                                }
                               ?>
+                            </select>
+                          </div>
+                          <div class="p-2">
+                          <select name="entity" id="" class="w-full border-2 border-gray-300 rounded-md p-1">
+                            <option value="">
+                              Budgeting Depatment
                             </option>
-                            <?php
-                          }
-                        ?>
-                      </select>
-                    </td>
-                    <td class="p-2">
-                    <select name="entity" id="" class="border-2 border-gray-300 rounded-md p-1">
-                      <option value="">
-                        Budgeting Depatment
-                      </option>
-                      <?php 
-                        $entities = getData('budgeting_entities');
-                        foreach($entities as $entity){
-                          ?>
-                          <option value="<?php echo $entity['id'];?>">
-                            <?php echo $entity['name'];?>
-                          </option>
-                          <?php
-                        }
-                      ?>
-                    </select>
-                    </td>
-                    <td class="p-2">
-                      <input type="submit" value="Update" name="update-user" class="bg-green-500 text-white px-4 py-2 rounded-md hover:bg-green-600">
-                    </td>
-                  </form>
-                </tr>
+                            <?php 
+                              $entities = getData('budgeting_entities');
+                              foreach($entities as $entity){
+                                ?>
+                                <option value="<?php echo $entity['id'];?>">
+                                  <?php echo $entity['name'];?>
+                                </option>
+                                <?php
+                              }
+                            ?>
+                          </select>
+                          </div>
+                          <div class="p-2">
+                            <input type="submit" value="Update" name="update-user" class="w-full bg-green-900 text-white px-4 py-2 rounded-md hover:bg-green-600">
+                          </div>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
                 <?php
               }
             ?>
-          </tbody>
-        </table>
+            <!-- edit modal ends here -->
       </div>
     </div>
     <div class="relative bg-white shadow-md rounded-md p-4">
@@ -158,7 +179,7 @@
       <table class="">
         <thead>
           <tr class="text-center">
-            <th class="py-2">Deoartment Name</th>
+            <th class="py-2">Department Name</th>
             <th class="py-2">Actions</th>
           </tr>
         </thead>
@@ -191,7 +212,7 @@
 </div>
 <?php include 'includes/footer.php' ?>
 <!-- <script src="../user_edit.js"></script> -->
-<script>
+<!-- <script>
   // Accessing elements using their IDs
   <?php foreach ($users as $user): ?>
       var main_row<?php echo $user['id']; ?> = document.getElementById('main-row<?php echo $user['id']; ?>');
@@ -220,4 +241,4 @@
   //   u_e_frm.style.display = 'block';
   //   u_a_frm.style.display = 'none';
   // });
-</script>
+</script> -->

@@ -14,7 +14,8 @@
       $items = getData('budget_items');
       addItemModel($categories, $entities);
     ?>
-    <h2 class="text-2xl font-bold mt-8 mb-4">Existing Items</h2>
+    <!-- existing items table -->
+    <h2 class="text-2xl font-bold mt-8 mb-4">Items and Categories</h2>
     <div class="flex flex-col md:flex-row gap-4 md:space-x-4">
       <div class="w-full md:w-1/3">
         <div class="bg-white overflow-x-auto shadow-md rounded-md p-4">
