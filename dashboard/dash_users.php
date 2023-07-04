@@ -14,12 +14,12 @@
         <table class="w-full">
           <thead>
             <tr>
-              <th class="p-2">Name</th>
-              <th class="p-2">Email</th>
-              <th class="p-2">Phone</th>
-              <th class="p-2">Role</th>
-              <th class="p-2">Department</th>
-              <th class="p-2">Actions</th>
+              <th class="p-2 text-center">Name</th>
+              <th class="p-2 text-center">Email</th>
+              <th class="p-2 text-center">Phone</th>
+              <th class="p-2 text-center">Role</th>
+              <th class="p-2 text-center">Department</th>
+              <th class="p-2 text-center">Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -38,10 +38,10 @@
                 ?>
                 <!-- the row to display user information -->
                 <tr id="main-row<?php echo $uid;?>" style="display: table-row;">
-                  <td class="p-2"><?php echo $user['fname']." ".$user['lname'];?></td>
-                  <td class="p-2"><?php echo $user['email'];?></td>
-                  <td class="p-2"><?php echo $user['phone'];?></td>
-                  <td class="p-2">
+                  <td class="p-2 text-center"><?php echo $user['fname']." ".$user['lname'];?></td>
+                  <td class="p-2 text-center"><?php echo $user['email'];?></td>
+                  <td class="p-2 text-center"><?php echo $user['phone'];?></td>
+                  <td class="p-2 text-center">
                     <?php 
                       $t = $user['type'];
                       if($t === 'A') 
@@ -52,8 +52,8 @@
                       echo "Budget Approving";
                     ?>
                   </td>
-                  <td class="p-2"><?php echo $dpt;?></td>
-                  <td class="flex gap-4 p-2">
+                  <td class="p-2 text-center"><?php echo $dpt;?></td>
+                  <td class="flex justify-center gap-4 p-2">
                     <button type="button"><img src="../images/edit_black_24dp.svg" alt="edit" data-modal-target="pencil<?php echo $uid;?>" data-modal-toggle="pencil<?php echo $uid;?>"></button>
                     <!-- delete button -->
                       <?php $model = 'user';?>
