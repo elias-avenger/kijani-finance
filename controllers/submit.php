@@ -50,15 +50,23 @@
         header("location: ../dashboard/dash_items.php");
     }
     if(isset($_POST['add-bperiod'])){
-        $pt = $_POST['p-type'];
+        $p_t = $_POST['p-type'];
         $pf = date_create($_POST['p-from']);
         $pt = date_create($_POST['p-to']);
-        $days = date_diff($pt, $pf)->format("%R%a");
-        if($pt === 'W' & $days > 7)
+        $days = date_diff($pf, $pt)->format("%R%a");
+        echo "type: ".$p_t;
+        echo "<br>days: ".$days;
+        if(($p_t === 'W' & $days > 7) | ($p_t === 'F' & $days > 14))
         {
             $_SESSION['msg'] = "period-h";
             header("location: ../dashboard/dash_budgets.php");
         }
+        if(($p_t === 'W' & $days < 4) | ($p_t === 'F' & $days < 8))
+        {
+            $_SESSION['msg'] = "period-l";
+            header("location: ../dashboard/dash_budgets.php");
+        }
+        
     }
 
     function validateAndSubmitUser($tp){
