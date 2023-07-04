@@ -216,4 +216,36 @@
         </div>
         <?php
     }
+
+    function addBPeriodModel(){
+        ?>
+        <div class="hidden fixed z-50 bg-green-900 overflow-x-auto shadow-md rounded-md p-4  mb-2 text-white" id="bPeriodModal">
+            <form id="" class="mx-auto flex " action="../controllers/submit.php" method="POST">
+                <div class="mr-4">
+                    <label class="block text-gray-100 text-sm font-bold mb-2" for="period">Period Type:</label>
+                    <select class="border rounded w-full py-2 px-3 text-gray-700 focus:shadow-outline" id="b-period" name="p-type" required>
+                        <option value="W">Weekly</option>
+                        <option value="F">Fortnightly</option>
+                    </select>
+                </div>
+                <div class="mr-4">
+                    <label for="p-from" class="block">From:</label>
+                    <input type="date" name="p-from" id="p-from" class="border rounded w-full py-2 px-3 text-gray-700 focus:shadow-outline" required>
+                </div>
+                <div class="mr-4">
+                    <label for="p-to" class="block">To:</label>
+                    <input type="date" name="p-to" id="p-to" class="border rounded w-full py-2 px-3 text-gray-700 focus:shadow-outline" required>
+                </div>
+                <div class="flex items-center ml-4">
+                    <input type="submit" value="Add Period" name="add-bperiod" class="bg-green-800 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:shadow-outline">
+                </div>
+            </form>
+            <div class="absolute right-0 top-0 p-1">
+                <button type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm ml-auto inline-flex items-start dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="bPeriodModal">
+                    <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                </button>
+            </div>
+        </div>
+        <?php
+    }
 ?>

@@ -1,5 +1,7 @@
 <?php 
   include 'includes/header.php';
+  include "../controllers/models.php";
+  include "../controllers/msg.php";
 ?>
  <!-- Budgets Content -->
  <div class="container mx-auto py-8">
@@ -72,6 +74,16 @@
           </tbody>
         </table>
       </div>
+    </div>
+    <div class="relative bg-white shadow-md rounded-md p-4">
+      <!-- Addd new budgeting period button -->
+      <button data-modal-toggle="bPeriodModal" class="bg-green-800 text-white mb-2 px-1 py-2 rounded-md hover:bg-green-600 w-full">
+        Add a new Budgeting Period
+      </button>
+      <!-- Add budgeting period model -->
+      <?php
+        addBPeriodModel();
+      ?>
     </div>
   </div>
 <?php 

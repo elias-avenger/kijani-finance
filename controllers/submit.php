@@ -49,6 +49,17 @@
         $_SESSION['msg'] = "success";
         header("location: ../dashboard/dash_items.php");
     }
+    if(isset($_POST['add-bperiod'])){
+        $pt = $_POST['p-type'];
+        $pf = date_create($_POST['p-from']);
+        $pt = date_create($_POST['p-to']);
+        $days = date_diff($pt, $pf)->format("%R%a");
+        if($pt === 'W' & $days > 7)
+        {
+            $_SESSION['msg'] = "period-h";
+            header("location: ../dashboard/dash_budgets.php");
+        }
+    }
 
     function validateAndSubmitUser($tp){
         $fn = $_POST['fname'];

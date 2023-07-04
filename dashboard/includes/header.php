@@ -31,7 +31,7 @@
       <nav class="hidden md:block">
         <ul class="flex space-x-4">
           <li><a href="dashboard.php" class="hover:text-gray-300">Home</a></li>
-          <li><a href="dash_budget.php" class="hover:text-gray-300">Budgets</a></li>
+          <li><a href="dash_budgets.php" class="hover:text-gray-300">Budgets</a></li>
           <li><a href="dash_items.php" class="hover:text-gray-300">Items</a></li>
           <li><a href="dash_users.php" class="hover:text-gray-300">Users</a></li>
           <li>
