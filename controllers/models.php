@@ -266,4 +266,88 @@
         </div>
         <?php
     }
+
+    function editUserModel($uid, $user, $b_entities){
+        ?>
+        <!-- Edit modal starts here -->
+        <div id="pencil<?php echo $uid;?>" data-modal-backdrop="static" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+            <div class="relative w-full max-w-md">
+                <div class="relative bg-white rounded-lg shadow ">
+                    <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center" data-modal-hide="pencil<?php echo $uid;?>">
+                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                        </svg>
+                        <span class="sr-only">Close modal</span>
+                    </button>
+                    <div class="px-6 py-6 lg:px-8">
+                    <h3 class="mb-4 text-xl font-bold text-green-900">Edit User</h3>
+                    <form action="../controllers/update.php" method="POST" class="">
+                        <input type="hidden" name="uid" value="<?php echo $user['id'];?>">
+
+                        <div class="flex gap-2 p-2"">
+                        <input type="text" name="fname" value="<?php echo $user['fname'];?>" class="w-full border-2 border-gray-300 rounded-md p-1">
+                        <input type="text" name="lname" value="<?php echo $user['lname'];?>" class="w-full border-2 border-gray-300 rounded-md p-1">
+                        </div>
+
+                        <div class="p-2">
+                        <input type="text" name="email" value="<?php echo $user['email'];?>" class="w-full border-2 border-gray-300 rounded-md p-1">
+                        </div>
+
+                        <div class="p-2">
+                        <input type="phone" name="phone" value="<?php echo $user['phone'];?>" class="w-full border-2 border-gray-300 rounded-md p-1 w-[6.4rem]">
+                        </div>
+
+                        <div class="p-2">
+                        <select name="type" id="" required class="w-full border-2 border-gray-300 rounded-md p-1">
+                            <option value="">
+                            Select Type
+                            </option>
+                            <?php 
+                            $qry = "SELECT DISTINCT type FROM users";
+                            $types = specialQuery($qry);
+                            foreach($types as $type){
+                                ?>
+                                <option value="<?php echo $type['type'];?>">
+                                <?php 
+                                    $te = $type['type'];
+                                    if($te === 'A') 
+                                    echo "Admin"; 
+                                    elseif($te === 'B') 
+                                    echo "Budgeting"; 
+                                    elseif($te === 'C') 
+                                    echo "Budget Approving";
+                                ?>
+                                </option>
+                                <?php
+                            }
+                            ?>
+                        </select>
+                        </div>
+                        <div class="p-2">
+                        <select name="entity" id="" class="w-full border-2 border-gray-300 rounded-md p-1">
+                        <option value="">
+                            Budgeting Depatment
+                        </option>
+                        <?php 
+                            foreach($b_entities as $entity){
+                            ?>
+                            <option value="<?php echo $entity['id'];?>">
+                                <?php echo $entity['name'];?>
+                            </option>
+                            <?php
+                            }
+                        ?>
+                        </select>
+                        </div>
+                        <div class="p-2">
+                        <input type="submit" value="Update" name="update-user" class="w-full bg-green-900 text-white px-4 py-2 rounded-md hover:bg-green-600">
+                        </div>
+                    </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <!-- edit modal ends here -->
+        <?php
+    }
 ?>
