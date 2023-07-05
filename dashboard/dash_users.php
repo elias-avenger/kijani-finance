@@ -18,7 +18,7 @@
               <th class="p-2 text-center">Email</th>
               <th class="p-2 text-center">Phone</th>
               <th class="p-2 text-center">Role</th>
-              <th class="p-2 text-center">Department</th>
+              <th class="p-2 text-center">Business Unit</th>
               <th class="p-2 text-center">Actions</th>
             </tr>
           </thead>
