@@ -19,6 +19,7 @@
               <th class="p-2 text-center">Phone</th>
               <th class="p-2 text-center">Role</th>
               <th class="p-2 text-center">Business Unit</th>
+              <th class="p-2 text-center">Uid</th>
               <th class="p-2 text-center">Actions</th>
             </tr>
           </thead>
@@ -53,6 +54,7 @@
                     ?>
                   </td>
                   <td class="p-2"><?php echo $dpt;?></td>
+                  <td class="p-2"><?php echo $uid;?></td>
                   <td class="flex justify-center gap-4 p-2">
                     <!-- edit button -->
                     <button type="button">
@@ -65,12 +67,13 @@
                     ?>
                     <!-- delete button -->
                     <?php $model = 'user';?>
-                    <button type="button" data-modal-target="delete<?php echo $model;?>Modal" data-modal-toggle="delete<?php echo $model;?>Modal">
+                    <button type="button" data-modal-target="delete<?php echo $model;?>Modal<?php echo $uid;?>" data-modal-toggle="delete<?php echo $model;?>Modal<?php echo $uid;?>">
                       <img src="../images/delete_black_24dp.svg" alt="delete">
                     </button>
                     <!-- delete modal -->
                     <?php
-                      deleteModel($model, $user['id']);
+                      echo $uid;
+                      deleteModel($model, $uid);
                     ?>
                   </td>
                 </tr>
@@ -119,7 +122,7 @@
                   <a href="#"><img src="../images/edit_black_24dp.svg" alt="edit" id="pencil<?php echo $uid;?>"></a>
                   <!-- delete button -->
                   <?php $model = 'unit';?>
-                  <button type="button" data-modal-target="delete<?php echo $model;?>Modal" data-modal-toggle="delete<?php echo $model;?>Modal">
+                  <button type="button" data-modal-target="delete<?php echo $model;?>Modal<?php echo $entity['id'];?>" data-modal-toggle="delete<?php echo $model;?>Modal<?php echo $entity['id'];?>">
                     <img src="../images/delete_black_24dp.svg" alt="delete">
                   </button>
                   <?php

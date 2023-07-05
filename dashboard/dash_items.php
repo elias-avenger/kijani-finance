@@ -37,7 +37,7 @@
                       <a href="#"><img src="../images/edit_black_24dp.svg" alt="edit" id="pencil<?php echo $uid;?>"></a>
                       <!-- delete button -->
                       <?php $model = 'category';?>
-                      <button type="button" data-modal-target="delete<?php echo $model;?>Modal" data-modal-toggle="delete<?php echo $model;?>Modal">
+                      <button type="button" data-modal-target="delete<?php echo $model;?>Modal<?php echo $category['id'];?>" data-modal-toggle="delete<?php echo $model;?>Modal<?php echo $category['id'];?>">
                         <img src="../images/delete_black_24dp.svg" alt="delete">
                       </button>
                       <?php
@@ -80,7 +80,7 @@
                       <a href="#"><img src="../images/edit_black_24dp.svg" alt="edit" id="pencil<?php echo $iid;?>"></a>
                       <!-- delete button -->
                       <?php $model = 'item';?>
-                      <button type="button" data-modal-target="delete<?php echo $model;?>Modal" data-modal-toggle="delete<?php echo $model;?>Modal">
+                      <button type="button" data-modal-target="delete<?php echo $model;?>Modal<?php echo $iid;?>" data-modal-toggle="delete<?php echo $model;?>Modal<?php echo $iid;?>">
                         <img src="../images/delete_black_24dp.svg" alt="delete">
                       </button>
                       <?php

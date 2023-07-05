@@ -31,19 +31,21 @@
         runDelete($t, $p, $r, $fk);
     }
     function runDelete($table, $page, $ref_table, $f_key){
-        $i = $_POST['id'];
-        //var_dump($i);
+        $i = $_POST['did'];
+        var_dump($i);
         if($ref_table > ''){
             $qry = "SELECT * FROM $ref_table WHERE $f_key = '$i'";
             $ref = specialQuery($qry);
             if(empty($ref)){
-                delete($table, $i);
-                $_SESSION['msg'] = "deleted";
-                header("location: ../dashboard/$page.php");
+                // delete($table, $i);
+                // $_SESSION['msg'] = "deleted";
+                // header("location: ../dashboard/$page.php");
+                echo $i." doesn't exisit in ".$ref_table;
             }
             else{
-                $_SESSION['msg'] = "delete_f";
-                header("location: ../dashboard/$page.php");
+                // $_SESSION['msg'] = "delete_f";
+                // header("location: ../dashboard/$page.php");
+                echo $i." already exisits in ".$ref_table;
             }
         }
         else{
