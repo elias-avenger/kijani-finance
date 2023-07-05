@@ -19,7 +19,7 @@
               <th class="p-2 text-center">Phone</th>
               <th class="p-2 text-center">Role</th>
               <th class="p-2 text-center">Business Unit</th>
-              <th class="p-2 text-center">Uid</th>
+              <!-- <th class="p-2 text-center">Uid</th> -->
               <th class="p-2 text-center">Actions</th>
             </tr>
           </thead>
@@ -54,7 +54,7 @@
                     ?>
                   </td>
                   <td class="p-2"><?php echo $dpt;?></td>
-                  <td class="p-2"><?php echo $uid;?></td>
+                  <!-- <td class="p-2"><?php //echo $uid;?></td> -->
                   <td class="flex justify-center gap-4 p-2">
                     <!-- edit button -->
                     <button type="button">

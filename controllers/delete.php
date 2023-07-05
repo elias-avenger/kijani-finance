@@ -32,20 +32,20 @@
     }
     function runDelete($table, $page, $ref_table, $f_key){
         $i = $_POST['did'];
-        var_dump($i);
+        //var_dump($i);
         if($ref_table > ''){
             $qry = "SELECT * FROM $ref_table WHERE $f_key = '$i'";
             $ref = specialQuery($qry);
             if(empty($ref)){
-                // delete($table, $i);
-                // $_SESSION['msg'] = "deleted";
-                // header("location: ../dashboard/$page.php");
-                echo $i." doesn't exisit in ".$ref_table;
+                delete($table, $i);
+                $_SESSION['msg'] = "deleted";
+                header("location: ../dashboard/$page.php");
+                //echo $i." doesn't exisit in ".$ref_table;
             }
             else{
-                // $_SESSION['msg'] = "delete_f";
-                // header("location: ../dashboard/$page.php");
-                echo $i." already exisits in ".$ref_table;
+                $_SESSION['msg'] = "delete_f";
+                header("location: ../dashboard/$page.php");
+                //echo $i." already exisits in ".$ref_table;
             }
         }
         else{
