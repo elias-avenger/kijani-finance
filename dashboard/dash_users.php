@@ -72,7 +72,7 @@
                     </button>
                     <!-- delete modal -->
                     <?php
-                      echo $uid;
+                      //echo $uid;
                       deleteModel($model, $uid);
                     ?>
                   </td>
