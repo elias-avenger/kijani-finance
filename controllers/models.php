@@ -33,24 +33,26 @@
             <div class="relative w-full max-w-md max-h-full">
                 <!-- Modal content -->
                 <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                    <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="itemModal">
-                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                        </svg>
-                    </button>
+                    <div class="bg-green-900 rounded-t-lg text-white p-4 mt-2 ">
+                        <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="itemModal">
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                            </svg>
+                        </button>
+                        <h3 class="mb-4 text-xl font-medium text-white ">Add Item </h3>
+                    </div>
                     <div class="px-6 py-6 lg:px-8">
-                        <h3 class="mb-4 text-xl font-medium text-green-900 ">Add Item </h3>
                         <form class="mx-auto flex flex-col" action="../controllers/submit.php" method="POST">
-                            <div class="mb-2">
+                            <div class="mb-2 mt-2">
                                 <input class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="i-name" name="i-name" type="text" placeholder="Enter Item name" required>
                             </div>
-                            <div class="mb-2">
+                            <div class="mb-2 mt-2">
                                 <textarea name="description" id="" cols="40" rows="3" class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter item Description"></textarea>
                             </div>
-                            <div class="mb-2">
-                                <input class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="unit" name="unit" type="text" placeholder="Units" required>
+                            <div class="mb-2 mt-2">
+                                <input class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="unit" name="unit" type="text" placeholder="Unit" required>
                             </div>
-                            <div class="mb-2">
+                            <div class="mb-2 mt-2">
                                 <select class="border rounded w-full py-2 px-3 text-gray-700" name="category" required>
                                     <option value="">Select Category</option>
                                     <?php
@@ -62,12 +64,12 @@
                                     ?>
                                 </select>
                             </div>
-                            <div class="" style="display: flex; flex-direction:column; color:white">
-                                <label class="text-xl">Select where it applies:</label>
+                            <div class="flex flex-col text-green-900 font-bold m-4">
+                                <label class="text-xl">Select applicable Business Unit(s):</label>
                                 <?php
                                 foreach($entities as $entity){
                                     ?>
-                                    <div>
+                                    <div class="m-1">
                                         <input type="checkbox" class="w-4 h-4 text-green-900 bg-gray-100 border-gray-300 rounded focus:ring-green-900  focus:ring-2" value="<?php echo $entity['id'];?>" name="entity[]"> <?php echo $entity['name'];?>
                                     </div>
                                     <?php
@@ -281,8 +283,8 @@
         <div id="pencil<?php echo $uid;?>" data-modal-backdrop="static" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
             <div class="relative w-full max-w-md">
                 <div class="relative bg-white rounded-lg shadow ">
-                    <div class="bg-green-700 text-white p-4 mt-2 ">
-                        <button type="button" class="absolute top-3 right-2.5 text-green-900 bg-red-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center" data-modal-hide="pencil<?php echo $uid;?>">
+                    <div class="bg-green-900 rounded-t-lg text-white p-4 mt-2 ">
+                        <button type="button" class="absolute top-3 right-2.5 text-green-900 bg-gray-200 hover:bg-red-400 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center" data-modal-hide="pencil<?php echo $uid;?>">
                             <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
                                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
                             </svg>
@@ -290,8 +292,6 @@
                         </button>
                         <h3 class="mb-4 text-xl font-bold">Edit User</h3>
                     </div>
-                    
-
                     <div class="px-6 py-6 lg:px-8">
                         <form action="../controllers/update.php" method="POST" class="">
                             <input type="hidden" name="uid" value="<?php echo $user['id'];?>">

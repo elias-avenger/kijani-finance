@@ -8,7 +8,7 @@
         runDelete($t, $p, $r, $fk);
         
     }
-    if(isset($_POST['delete_entity'])){
+    if(isset($_POST['delete_unit'])){
         $t = 'budgeting_entities';
         $p = 'dash_users';
         $r = 'entity_has_item';
@@ -32,7 +32,7 @@
     }
     function runDelete($table, $page, $ref_table, $f_key){
         $i = $_POST['did'];
-        //var_dump($i);
+        var_dump($i);
         if($ref_table > ''){
             $qry = "SELECT * FROM $ref_table WHERE $f_key = '$i'";
             $ref = specialQuery($qry);

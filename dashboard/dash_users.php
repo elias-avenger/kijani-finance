@@ -92,13 +92,18 @@
       <!-- Add user model -->
       <?php
         addUserModel();
+        $b_users = specialQuery("SELECT id FROM users WHERE type = 'B'");
+        if(!empty($b_users)){
+          ?>
+          <!-- add department button -->
+          <button data-modal-toggle="departmentModal" class="bg-green-800 text-white mb-2 mt-2 px-1 py-2 rounded-md hover:bg-green-600 w-full">
+            Add Business Unit
+          </button>
+          <!-- Add department modal -->
+          <?php 
+            addDepartmentModel($users);
+        }
       ?>
-      <!-- add department button -->
-      <button data-modal-toggle="departmentModal" class="bg-green-800 text-white mb-2 mt-2 px-1 py-2 rounded-md hover:bg-green-600 w-full">
-        Add Business Unit
-      </button>
-      <!-- Add department modal -->
-      <?php addDepartmentModel($users);?>
     </div>
   </div>
 
