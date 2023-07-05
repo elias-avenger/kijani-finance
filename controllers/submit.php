@@ -11,7 +11,6 @@
         validateAndSubmitUser($type); 
         header("location: ../dashboard/dash_users.php");   
     }
-
     if(isset($_POST['add-entity'])){
         $n = $_POST['e-name'];
         $d = $_POST['e-description'];
@@ -58,8 +57,6 @@
         $days = date_diff($pf, $pt)->format("%R%a");
         $max_date = date_create(selectMAx('budget_period', '_to'));
         $diff_prev = (int)date_diff($max_date, $pf)->format("%R%a");
-        //echo "type: ".$p_t;
-        //echo "<br>days: ".$days;
         if(($p_t === 'W' & $days > 7) | ($p_t === 'F' & $days > 14))
         {
             $_SESSION['msg'] = "period-h";
