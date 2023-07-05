@@ -63,8 +63,8 @@
                                     ?>
                                 </select>
                             </div>
-                            <div class="" style="display: flex; flex-direction:column; color:white">
-                                <label class="text-xl">Select where it applies:</label>
+                            <div class="mb-2" style="display: flex; flex-direction:column; color:white">
+                                <label class="text-xl">Select Unit(s) where it applies:</label>
                                 <?php
                                 foreach($entities as $entity){
                                     ?>
@@ -127,7 +127,7 @@
                 <!-- Modal content -->
                 <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
                 <!-- close modal  button -->
-                    <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-hide="add-user-form">
+                    <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-red-500 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-800 dark:hover:text-white" data-modal-hide="add-user-form">
                         <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
                     </button>
                     <div class="px-6 py-6 lg:px-8">
@@ -196,11 +196,11 @@
                 <span class="sr-only">Close modal</span>
               </button>
               <div class="px-6 py-6 lg:px-8">
-                <h3 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Register a Department</h3>
+                <h3 class="mb-4 text-xl font-bold text-gray-900 dark:text-white">Register a Business Unit</h3>
                 <!-- Add department form-->
                 <form id="add-entity-form" class="relative z-50 flex flex-col" action="../controllers/submit.php" method="POST">
                   <div class="mt-4">
-                    <label for="e-name" class="block">Entity/Department Name:</label>
+                    <label for="e-name" class="block">Unit Name:</label>
                     <input type="text" name="e-name" id="e-name" class="w-full border-2 border-green-900 rounded-md p-1" required>
                   </div>
                   <div class="mt-4">
@@ -273,76 +273,97 @@
         <div id="pencil<?php echo $uid;?>" data-modal-backdrop="static" class="fixed top-0 left-0 right-0 z-50 hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
             <div class="relative w-full max-w-md">
                 <div class="relative bg-white rounded-lg shadow ">
-                    <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center" data-modal-hide="pencil<?php echo $uid;?>">
-                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                        </svg>
-                        <span class="sr-only">Close modal</span>
-                    </button>
+                    <div class="bg-green-700 text-white p-4 mt-2 ">
+                        <button type="button" class="absolute top-3 right-2.5 text-green-900 bg-red-400 hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center" data-modal-hide="pencil<?php echo $uid;?>">
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                            </svg>
+                            <span class="sr-only">Close modal</span>
+                        </button>
+                        <h3 class="mb-4 text-xl font-bold">Edit User</h3>
+                    </div>
+                    
+
                     <div class="px-6 py-6 lg:px-8">
-                    <h3 class="mb-4 text-xl font-bold text-green-900">Edit User</h3>
-                    <form action="../controllers/update.php" method="POST" class="">
-                        <input type="hidden" name="uid" value="<?php echo $user['id'];?>">
-
-                        <div class="flex gap-2 p-2"">
-                        <input type="text" name="fname" value="<?php echo $user['fname'];?>" class="w-full border-2 border-gray-300 rounded-md p-1">
-                        <input type="text" name="lname" value="<?php echo $user['lname'];?>" class="w-full border-2 border-gray-300 rounded-md p-1">
-                        </div>
-
-                        <div class="p-2">
-                        <input type="text" name="email" value="<?php echo $user['email'];?>" class="w-full border-2 border-gray-300 rounded-md p-1">
-                        </div>
-
-                        <div class="p-2">
-                        <input type="phone" name="phone" value="<?php echo $user['phone'];?>" class="w-full border-2 border-gray-300 rounded-md p-1 w-[6.4rem]">
-                        </div>
-
-                        <div class="p-2">
-                        <select name="type" id="" required class="w-full border-2 border-gray-300 rounded-md p-1">
-                            <option value="">
-                            Select Type
-                            </option>
-                            <?php 
-                            $qry = "SELECT DISTINCT type FROM users";
-                            $types = specialQuery($qry);
-                            foreach($types as $type){
-                                ?>
-                                <option value="<?php echo $type['type'];?>">
-                                <?php 
-                                    $te = $type['type'];
-                                    if($te === 'A') 
-                                    echo "Admin"; 
-                                    elseif($te === 'B') 
-                                    echo "Budgeting"; 
-                                    elseif($te === 'C') 
-                                    echo "Budget Approving";
-                                ?>
+                        <form action="../controllers/update.php" method="POST" class="">
+                            <input type="hidden" name="uid" value="<?php echo $user['id'];?>">
+                            <font class="text-green-800 font-bold">
+                                Name:
+                            </font>
+                            <div class="flex gap-2 p-2"">
+                                <input type="text" name="fname" value="<?php echo $user['fname'];?>" class="w-full border-2 border-gray-300 rounded-md p-1">
+                                <input type="text" name="lname" value="<?php echo $user['lname'];?>" class="w-full border-2 border-gray-300 rounded-md p-1">
+                            </div>
+                            <font class="text-green-800 font-bold">
+                                Email:
+                            </font>
+                            <div class="p-2">
+                                <input type="text" name="email" value="<?php echo $user['email'];?>" class="w-full border-2 border-gray-300 rounded-md p-1">
+                            </div>
+                            <font class="text-green-800 font-bold">
+                                Phone:
+                            </font>
+                            <div class="p-2">
+                                <input type="phone" name="phone" value="<?php echo $user['phone'];?>" class="w-full border-2 border-gray-300 rounded-md p-1 w-[6.4rem]">
+                            </div>
+                            <font class="text-green-800 font-bold">
+                                Date of Birth:
+                            </font>
+                            <div class="p-2">
+                                <input type="date" name="dob" value="<?php echo $user['dob'];?>" class="w-full border-2 border-gray-300 rounded-md p-1 w-[6.4rem]">
+                            </div>
+                            <font class="text-green-800 font-bold">
+                                Role:
+                            </font>
+                            <div class="p-2">
+                                <select name="type" id="" required class="w-full border-2 border-gray-300 rounded-md p-1">
+                                    <option value="">
+                                    Select Type
+                                    </option>
+                                    <?php 
+                                    $qry = "SELECT DISTINCT type FROM users";
+                                    $types = specialQuery($qry);
+                                    foreach($types as $type){
+                                        ?>
+                                        <option value="<?php echo $type['type'];?>">
+                                        <?php 
+                                            $te = $type['type'];
+                                            if($te === 'A') 
+                                            echo "Admin"; 
+                                            elseif($te === 'B') 
+                                            echo "Budgeting"; 
+                                            elseif($te === 'C') 
+                                            echo "Budget Approving";
+                                        ?>
+                                        </option>
+                                        <?php
+                                    }
+                                    ?>
+                                </select>
+                            </div>
+                            <font class="text-green-800 font-bold">
+                                Business Unit:
+                            </font>
+                            <div class="p-2">
+                                <select name="entity" id="" class="w-full border-2 border-gray-300 rounded-md p-1">
+                                <option value="">
+                                    Select Unit
                                 </option>
-                                <?php
-                            }
-                            ?>
-                        </select>
-                        </div>
-                        <div class="p-2">
-                        <select name="entity" id="" class="w-full border-2 border-gray-300 rounded-md p-1">
-                        <option value="">
-                            Budgeting Depatment
-                        </option>
-                        <?php 
-                            foreach($b_entities as $entity){
-                            ?>
-                            <option value="<?php echo $entity['id'];?>">
-                                <?php echo $entity['name'];?>
-                            </option>
-                            <?php
-                            }
-                        ?>
-                        </select>
-                        </div>
-                        <div class="p-2">
-                        <input type="submit" value="Update" name="update-user" class="w-full bg-green-900 text-white px-4 py-2 rounded-md hover:bg-green-600">
-                        </div>
-                    </form>
+                                <?php 
+                                    foreach($b_entities as $entity){
+                                    ?>
+                                    <option value="<?php echo $entity['id'];?>">
+                                        <?php echo $entity['name'];?>
+                                    </option>
+                                    <?php
+                                    }
+                                ?>
+                                </select>
+                                </div>
+                                <div class="p-2">
+                                <input type="submit" value="Update" name="update-user" class="w-full bg-green-900 text-white px-4 py-2 rounded-md hover:bg-green-600">
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

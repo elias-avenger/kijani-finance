@@ -18,7 +18,7 @@
               <th class="p-2 text-center">Email</th>
               <th class="p-2 text-center">Phone</th>
               <th class="p-2 text-center">Role</th>
-              <th class="p-2 text-center">Department</th>
+              <th class="p-2 text-center">Unit</th>
               <th class="p-2 text-center">Actions</th>
             </tr>
           </thead>
@@ -92,7 +92,7 @@
       ?>
       <!-- add department button -->
       <button data-modal-toggle="departmentModal" class="bg-green-800 text-white mb-2 mt-2 px-1 py-2 rounded-md hover:bg-green-600 w-full">
-        Add Budgeting Entity/Department
+        Add Business Unit
       </button>
       <!-- Add department modal -->
       <?php addDepartmentModel($users);?>
@@ -101,11 +101,11 @@
 
   <div class="w-full md:w-1/3">
     <div class="bg-white overflow-x-auto shadow-md rounded-md p-4">
-      <h3 class="text-xl font-bold mb-4">Departments</h3>
+      <h3 class="text-xl font-bold mb-4">Business Units</h3>
       <table class="">
         <thead>
           <tr class="text-center">
-            <th class="py-2">Department Name</th>
+            <th class="py-2">Unit Name</th>
             <th class="py-2">Actions</th>
           </tr>
         </thead>
@@ -118,7 +118,7 @@
                 <td class="flex gap-4 p-2">
                   <a href="#"><img src="../images/edit_black_24dp.svg" alt="edit" id="pencil<?php echo $uid;?>"></a>
                   <!-- delete button -->
-                  <?php $model = 'entity';?>
+                  <?php $model = 'unit';?>
                   <button type="button" data-modal-target="delete<?php echo $model;?>Modal" data-modal-toggle="delete<?php echo $model;?>Modal">
                     <img src="../images/delete_black_24dp.svg" alt="delete">
                   </button>

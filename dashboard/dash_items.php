@@ -60,7 +60,7 @@
             <thead>
               <tr class="text-center">
                 <th class="py-2">Item Name</th>
-                <th class="py-2">Departments/Entities</th>
+                <th class="py-2">Business Units</th>
                 <th class="py-2">Actions</th>
               </tr>
             </thead>
