@@ -5,7 +5,6 @@
 ?>
 <!-- Container -->
 <div class="container mx-auto py-8 px-4">
-  <h2 class="text-3xl font-bold mb-4">Users</h2>
   <!-- User Control Panel -->
   <div class="relative bg-white shadow-md rounded-md p-4">
     <!-- Addd new user button -->
@@ -33,6 +32,7 @@
     <!-- User Table -->
     <div class="bg-white shadow-md rounded-md p-4">
       <div class="overflow-x-auto">
+      <h2 class="text-3xl font-bold mb-4">Users</h2>
         <table class="w-full">
           <thead>
             <tr>
