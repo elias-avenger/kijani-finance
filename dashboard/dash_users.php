@@ -7,6 +7,28 @@
 <div class="container mx-auto py-8 px-4">
   <h2 class="text-3xl font-bold mb-4">Users</h2>
   <!-- User Control Panel -->
+  <div class="relative bg-white shadow-md rounded-md p-4">
+    <!-- Addd new user button -->
+    <button data-modal-toggle="add-user-form" class="bg-green-800 text-white mb-2 px-1 py-2 rounded-md hover:bg-green-600">
+      Add new user
+    </button>
+    <!-- Add user model -->
+    <?php
+      $users = getData('users');
+      addUserModel();
+      $b_users = specialQuery("SELECT id FROM users WHERE type = 'B'");
+      if(!empty($b_users)){
+        ?>
+        <!-- add department button -->
+        <button data-modal-toggle="departmentModal" class="bg-green-800 text-white mb-2 mt-2 px-1 py-2 rounded-md hover:bg-green-600">
+          Add Business Unit
+        </button>
+        <!-- Add department modal -->
+        <?php 
+          addDepartmentModel($users);
+      }
+    ?>
+  </div>
   <div class="grid grid-cols-1 md:flex md:justify-center lg:justify-between gap-6">
     <!-- User Table -->
     <div class="bg-white shadow-md rounded-md p-4">
@@ -26,7 +48,6 @@
           <tbody>
             <!-- User Row 1 -->
             <?php
-              $users = getData('users');
               foreach($users as $user){
                 $uid = $user['id'];
                 if(mysqli_num_rows(getDepartment($uid)) > 0){
@@ -84,29 +105,7 @@
         </table>
       </div>
     </div>
-    <div class="relative bg-white shadow-md rounded-md p-4">
-      <!-- Addd new user button -->
-      <button data-modal-toggle="add-user-form" class="bg-green-800 text-white mb-2 px-1 py-2 rounded-md hover:bg-green-600 w-full">
-        Add new user
-      </button>
-      <!-- Add user model -->
-      <?php
-        addUserModel();
-        $b_users = specialQuery("SELECT id FROM users WHERE type = 'B'");
-        if(!empty($b_users)){
-          ?>
-          <!-- add department button -->
-          <button data-modal-toggle="departmentModal" class="bg-green-800 text-white mb-2 mt-2 px-1 py-2 rounded-md hover:bg-green-600 w-full">
-            Add Business Unit
-          </button>
-          <!-- Add department modal -->
-          <?php 
-            addDepartmentModel($users);
-        }
-      ?>
-    </div>
   </div>
-
   <div class="w-full md:w-1/3">
     <div class="bg-white overflow-x-auto shadow-md rounded-md p-4">
       <h3 class="text-xl font-bold mb-4">Business Units</h3>
