@@ -26,8 +26,8 @@
     if(isset($_POST['delete_item'])){
         $t = 'budget_items';
         $p = 'dash_items';
-        $r = '';
-        $fk = '';
+        $r = 'entity_has_item';
+        $fk = 'item';
         runDelete($t, $p, $r, $fk);
     }
     function runDelete($table, $page, $ref_table, $f_key){
