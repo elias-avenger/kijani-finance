@@ -15,7 +15,7 @@
             }
             elseif($type === 'B')
             {
-                header("location: budgeting.php");
+                header("location: ../dashboard/budgeting.php");
             }
         }
         else{
