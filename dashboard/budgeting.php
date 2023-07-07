@@ -1,7 +1,19 @@
 <?php 
   include 'includes/b_header.php'; 
-  
+  include "../controllers/models.php";
   include "../controllers/msg.php";
+  $uid = $user_data['id'];
+  $units = specialQuery("SELECT * FROM budgeting_entities WHERE incharge = '$uid'");
+  //var_dump(count($units));
+  if(count($units) == 1)
+    $_SESSION['units'] = $units['id'];
+  elseif(!isset($_SESSION['unit']) && count($units) > 1)
+  {
+    selectUnitModel($units);
+  } 
+  else{
+    noUnitModel();
+  } 
 ?>
   <!-- Dashboard Content -->
   <div class="container mx-auto py-8 px-4">
@@ -16,7 +28,6 @@
           <!-- Add more category options as needed -->
         </select>
       </div>
-
       <div class="mb-4">
         <h3 class="text-xl font-bold mb-2">Items:</h3>
         <div id="items" class="space-y-4">
