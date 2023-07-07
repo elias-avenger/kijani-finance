@@ -1,10 +1,14 @@
-<?php include 'includes/b_header.php' ?>
+<?php 
+  include 'includes/b_header.php'; 
+  
+  include "../controllers/msg.php";
+?>
   <!-- Dashboard Content -->
   <div class="container mx-auto py-8 px-4">
     <h2 class="text-3xl font-bold mb-4">Budget Form</h2>
     <form id="budgetForm" class="max-w-lg mx-auto overflow-x-auto">
       <div class="mb-4">
-        <label for="category" class="block text-gray-700 font-bold mb-2">Week:</label>
+        <label for="category" class="block text-gray-700 font-bold mb-2">Budgeting Period:</label>
         <select id="category" class="w-full border border-gray-300 rounded py-2 px-4 focus:outline-none focus:border-blue-500">
           <option value="category1">Week 1</option>
           <option value="category2">Week 2</option>
