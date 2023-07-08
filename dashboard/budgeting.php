@@ -3,17 +3,32 @@
   include "../controllers/models.php";
   include "../controllers/msg.php";
   $uid = $user_data['id'];
-  $units = specialQuery("SELECT * FROM budgeting_entities WHERE incharge = '$uid'");
-  //var_dump(count($units));
-  if(count($units) == 1)
-    $_SESSION['units'] = $units['id'];
+  $units = specialQuery("SELECT * FROM budgeting_entities WHERE incharge = '$uid'");  
+  var_dump(count($units));
+  if(count($units) == 1){
+    $sql_u = specialNoResult("SELECT * FROM budgeting_entities WHERE incharge = '$uid'");
+    $units = mysqli_fetch_array($sql_u);
+    $num = mysqli_num_rows($sql_u);
+    $eid = $units['id'];
+    $ename = $units['name'];
+    echo "Business Unit: ".$ename;
+  }
   elseif(!isset($_SESSION['unit']) && count($units) > 1)
   {
     selectUnitModel($units);
   } 
-  else{
+  elseif(count($units) < 1){
     noUnitModel();
-  } 
+  }
+  
+  if(isset($_SESSION['unit'])){
+    $eid = $_SESSION['unit'];
+    foreach($units as $unit){
+      if($unit['id'] === $eid)
+        $ename = $unit['name'];
+    }
+    echo "Business Unit: ".$ename;
+  }
 ?>
   <!-- Dashboard Content -->
   <div class="container mx-auto py-8 px-4">
