@@ -83,6 +83,21 @@
         }
         
     }
+    if(isset($_POST['add-budget'])){
+        $entity = $_POST['entity'];
+        $period = $_POST['period'];
+        $items = $_POST['item'];
+        $qntys = $_POST['quantity'];
+        $prices = $_POST['price'];
+        $b_no = "B-E-".$entity."-P-".$period;
+        var_dump($b_no);
+        foreach($items as $item){
+            $i = array_search($item, $items);
+            $q = $qntys[$i];
+            $c = $prices[$i];
+            $b_qry = "INSERT INTO budegts SET quantity = '$q', cost = '$c', budget_no = '$b_no', incharge";
+        }
+    }
 
     function validateAndSubmitUser($tp){
         $fn = $_POST['fname'];

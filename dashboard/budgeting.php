@@ -32,16 +32,17 @@
     $i_sql = "SELECT item FROM entity_has_item WHERE entity = '$eid'";
     $item_ids = specialQuery($i_sql);
     $num_item_ids = count($item_ids);
-    unset($_SESSION['unit']);
+    //unset($_SESSION['unit']);
   }
 ?>
   <!-- Dashboard Content -->
   <div class="container mx-auto py-8 px-4">
     <h2 class="text-3xl font-bold mb-4">Budget Form</h2>
-    <form id="budgetForm" class="max-w-lg mx-auto overflow-x-auto">
+    <form action="../controllers/submit.php" method="POST" class="max-w-lg mx-auto overflow-x-auto">
       <div class="mb-4">
+        <input type="hidden" name="entity" value="<?php echo $eid;?>">
         <label for="category" class="block text-gray-700 font-bold mb-2">Budgeting Period:</label>
-        <select class="w-full border border-gray-300 rounded py-2 px-4 focus:outline-none focus:border-blue-500" required>
+        <select name="period" class="w-full border border-gray-300 rounded py-2 px-4 focus:outline-none focus:border-blue-500" required>
           <option value="">Select period</option>
           <?php
             foreach($periods as $period){
@@ -83,7 +84,7 @@
         <button type="button" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" onclick="addBudgetItem()">Add item</button>
       </div>
       <div class="py-12 px-6 w-46">
-        <button type="submit" class="w-full bg-green-900 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Submit</button>
+        <button type="submit" name="add-budget" class="w-full bg-green-900 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Submit</button>
       </div>
     </form>
   </div>
@@ -205,48 +206,5 @@
         row.remove();
       }
     }
-
-    // document.addEventListener('DOMContentLoaded', function () {
-    //   const addItemBtn = document.getElementById('addItemBtn');
-    //   const budgetItems = document.getElementById('items');
-
-    //   addItemBtn.addEventListener('click', function () {
-    //     const itemTemplate = `
-    //     <div class="flex space-x-3">
-    //         <select class="w-full border border-gray-300 rounded py-2 px-1 focus:outline-none focus:border-blue-500" required>
-    //         <option value="">Select Item</option>
-    //         <?php
-    //           foreach($item_ids as $item_id){
-    //             $iid = $item_id['item'];
-    //             $item = mysqli_fetch_array(specialNoResult("SELECT * FROM budget_items WHERE id = $iid"));
-    //             ?>
-    //             <option value="<?php //echo $item['id']?>"><?php //echo $item['name']." (".$item['unit'].")";?></option>
-    //             <?php
-    //           }
-    //         ?>
-    //         </select>
-    //         <input type="number" min="1" class="w-full border border-gray-300 rounded py-2 px-1 focus:outline-none focus:border-blue-500" placeholder="Quantity">
-    //         <input type="number" min="0" step="0.01" class="w-full border border-gray-300 rounded py-2 px-1 focus:outline-none focus:border-blue-500" placeholder="Price">
-    //         <input type="text" class="w-full border border-gray-300 rounded py-2 px-1 focus:outline-none focus:border-blue-500" value="10000" placeholder="" disabled>
-    //         <button class="bg-red-500 hover:bg-red-600 text-white font-bold py-1 px-2 rounded">X</button>
-    //       </div>
-    //     `;
-
-    //     const newItem = document.createElement('div');
-    //     newItem.innerHTML = itemTemplate;
-    //     budgetItems.appendChild(newItem);
-    //   });
-
-    //   budgetItems.addEventListener('click', function (event) {
-    //     if (event.target.tagName === 'BUTTON') {
-    //       event.target.closest('.flex').remove();
-    //     }
-    //   });
-    //   budgetItems.addEventListener('input', function (event){
-    //     if(event.target.getElementById === 'prc') {
-    //       event.target.
-    //     }
-    //   });
-    // });
   </script>
   <?php include 'includes/footer.php' ?>
