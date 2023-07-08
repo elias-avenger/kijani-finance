@@ -28,6 +28,7 @@
         $ename = $unit['name'];
     }
     echo "Business Unit: ".$ename;
+    $periods = getData('budget_period');
   }
 ?>
   <!-- Dashboard Content -->
@@ -36,11 +37,25 @@
     <form id="budgetForm" class="max-w-lg mx-auto overflow-x-auto">
       <div class="mb-4">
         <label for="category" class="block text-gray-700 font-bold mb-2">Budgeting Period:</label>
-        <select id="category" class="w-full border border-gray-300 rounded py-2 px-4 focus:outline-none focus:border-blue-500">
-          <option value="category1">Week 1</option>
-          <option value="category2">Week 2</option>
-          <option value="category3">Week 3</option>
-          <!-- Add more category options as needed -->
+        <select id="category" class="w-full border border-gray-300 rounded py-2 px-4 focus:outline-none focus:border-blue-500" required>
+          <option value="">Select period</option>
+          <?php
+            foreach($periods as $period){
+              $frm = date_create($period['_from']);
+              $today = date_create(date("Y-m-d"));
+              $days = date_diff($today, $frm)->format("%R%a");
+              if($days > 0){
+                $f = date("d-m-Y", strtotime($period['_from']));
+                $t = date("d-m-Y", strtotime($period['_to']));
+                $n = str_replace(" ", "", $period['name']);
+                ?>
+                <option value="<?php echo $period['id']?>">
+                  <?php echo $n." (From ".$f." to ".$t.")";?>
+                </option>
+                <?php
+              }
+            }
+          ?>
         </select>
       </div>
       <div class="mb-4">
