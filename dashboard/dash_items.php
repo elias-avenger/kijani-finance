@@ -123,3 +123,28 @@
   </div>
 </div>
 <?php include 'includes/footer.php' ?>
+<script>
+  function showEntity(){
+    <?php
+      foreach($entities as $entity){
+        $ei = $entity['id'];
+        ?>
+        $checkbox<?php echo $ei;?> = document.getElementById('check<?php echo $ei;?>');
+        $div<?php echo $ei;?> = document.getElementById('entity<?php echo $ei;?>');
+        $unit<?php echo $ei;?> = document.getElementById('unit<?php echo $ei;?>');
+        $just<?php echo $ei;?> = document.getElementById('just<?php echo $ei;?>');
+        if($checkbox<?php echo $ei;?>.checked == true){
+          $div<?php echo $ei;?>.style.display = "block";
+          $unit<?php echo $ei;?>.disabled = false;
+          $just<?php echo $ei;?>.disabled = false;
+        }
+        else{
+          $div<?php echo $ei;?>.style.display = "none";
+          $unit<?php echo $ei;?>.disabled = true;
+          $just<?php echo $ei;?>.disabled = true;
+        }
+        <?php
+      }  
+    ?>
+  }
+</script>

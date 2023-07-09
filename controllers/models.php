@@ -50,9 +50,6 @@
                                 <textarea name="description" id="" cols="40" rows="3" class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Enter item Description"></textarea>
                             </div>
                             <div class="mb-2 mt-2">
-                                <input class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" id="unit" name="unit" type="text" placeholder="Unit" required>
-                            </div>
-                            <div class="mb-2 mt-2">
                                 <select class="border rounded w-full py-2 px-3 text-gray-700" name="category" required>
                                     <option value="">Select Category</option>
                                     <?php
@@ -68,9 +65,18 @@
                                 <label class="text-xl">Select applicable Business Unit(s):</label>
                                 <?php
                                 foreach($entities as $entity){
+                                    $e_id = $entity['id'];
                                     ?>
                                     <div class="m-1">
-                                        <input type="checkbox" class="w-4 h-4 text-green-900 bg-gray-100 border-gray-300 rounded focus:ring-green-900  focus:ring-2" value="<?php echo $entity['id'];?>" name="entity[]"> <?php echo $entity['name'];?>
+                                        <input type="checkbox" id="check<?php echo $e_id;?>" class="w-4 h-4 text-green-900 bg-gray-100 border-gray-300 rounded focus:ring-green-900  focus:ring-2" value="<?php echo $e_id;?>" name="entity[]" onclick="showEntity()"> <?php echo $entity['name'];?>
+                                    </div>
+                                    <div id="entity<?php echo $e_id;?>" style="display: none;">
+                                        <div class="mb-2 mt-2">
+                                            <input id="unit<?php echo $e_id;?>" class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" name="unit[]" type="text" placeholder="Unit" required>
+                                        </div>
+                                        <div class="mb-2 mt-2">
+                                            <textarea name="justification[]" id="just<?php echo $e_id;?>" cols="40" rows="3" class="border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" placeholder="Justification (How, Why... this item, unit,... )"></textarea>
+                                        </div>
                                     </div>
                                     <?php
                                 }
