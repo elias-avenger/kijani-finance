@@ -12,6 +12,8 @@
     $eid = $units['id'];
     $ename = $units['name'];
     echo "Business Unit: ".$ename;
+    $item_ids = getNumItems($eid);
+    $num_item_ids = count($item_ids);
   }
   elseif(!isset($_SESSION['unit']) && count($units) > 1)
   {
@@ -28,12 +30,16 @@
         $ename = $unit['name'];
     }
     echo "Business Unit: ".$ename;
-    $periods = getData('budget_period');
-    $i_sql = "SELECT item FROM entity_has_item WHERE entity = '$eid'";
-    $item_ids = specialQuery($i_sql);
+    $item_ids = getNumItems($eid);
     $num_item_ids = count($item_ids);
     //unset($_SESSION['unit']);
   }
+  function getNumItems($id){
+    $i_sql = "SELECT item FROM entity_has_item WHERE entity = '$id'";
+    $items = specialQuery($i_sql);
+    return $items;
+  }
+  $periods = getData('budget_period');
 ?>
   <!-- Dashboard Content -->
   <div class="container mx-auto py-8 px-4">
