@@ -96,14 +96,14 @@
         $qntys = $_POST['quantity'];
         $prices = $_POST['price'];
         $b_no = "B-E-".$entity."-P-".$period;
-        $incharge = specialNoResult("SELECT incharge FROM budgeting_entities WHERE entity = '$entity'")->fetch_column();
-        $i = $incharge['incharge'];
+        $incharge = specialNoResult("SELECT incharge FROM budgeting_entities WHERE id = '$entity'")->fetch_column();
+        //$i = $incharge['incharge'];
         var_dump($b_no);
         foreach($items as $item){
             $x = array_search($item, $items);
             $q = $qntys[$x];
             $c = $prices[$x];
-            $b_qry = "INSERT INTO budegts SET quantity = '$q', cost = '$c', budget_no = '$b_no', incharge='$i', submitted_by = '$s_by', entity = '$entity', item = '$item', period = '$period'";
+            $b_qry = "INSERT INTO budgets SET quantity = '$q', cost = '$c', budget_no = '$b_no', incharge='$incharge', submitted_by = '$s_by', entity = '$entity', item = '$item', period = '$period'";
             addData($b_qry);
         }
         $_SESSION['msg'] = "success";
