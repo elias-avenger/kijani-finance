@@ -4,7 +4,7 @@
   include "../controllers/msg.php";
   $uid = $user_data['id'];
   $units = specialQuery("SELECT * FROM budgeting_entities WHERE incharge = '$uid'");  
-  var_dump(count($units));
+  //var_dump(count($units));
   if(count($units) == 1){
     $sql_u = specialNoResult("SELECT * FROM budgeting_entities WHERE incharge = '$uid'");
     $units = mysqli_fetch_array($sql_u);
@@ -73,10 +73,13 @@
       <div class="mb-4">
         <h3 class="text-xl font-bold mb-2">Items:</h3>
         <?php
+          // echo "<br>No. of Items:".$num_item_ids;
           if($num_item_ids < 1){
             echo "<font class='text-red-400 font-bold'> No Budget items attached to ".$ename." yet!<br> Contact your administrator</font>";
           }
           else{
+            // echo "<br>I'm in!<br>";
+            // var_dump($item_ids);
             ?>
             <div id="budgetItemsContainer" class="space-y-4">
               <!-- Add more item input fields as needed -->
@@ -94,7 +97,7 @@
       </div>
     </form>
   </div>
-  <script>
+  <script type="text/javascript">
     let rowCount = 0; // Counter for generating unique row IDs
     // Add initial row when the page loads
     window.addEventListener("DOMContentLoaded", function() {
@@ -114,14 +117,14 @@
       // Add options to the select element
       const options = [
         { text: "Select Item", value: "" },
-        <?php
+        <?php 
           foreach($item_ids as $item_id){
             $iid = $item_id['item'];
             $item = mysqli_fetch_array(specialNoResult("SELECT * FROM budget_items WHERE id = $iid"));
-            $in = $item['name'];
-            $iu = $item['unit'];
+            $i_name = $item['name'];
+            $i_unit = specialNoResult("SELECT unit from entity_has_item WHERE entity = '$eid' AND item = '$iid'")->fetch_column();
             ?>
-            { text: "<?php echo $in.' ('.$iu.')';?>", value: "<?php echo $iid?>" },
+            { text: "<?php echo $i_name.' ('.$i_unit.')'?>", value: "<?php echo $iid?>" },
             <?php
           }
         ?>
