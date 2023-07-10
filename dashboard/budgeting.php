@@ -56,12 +56,14 @@
               $frm = date_create($period['_from']);
               $today = date_create(date("Y-m-d"));
               $days = date_diff($today, $frm)->format("%R%a");
-              if($days >= 0){
+              $pid = $period['id'];
+              $budgeted = specialQuery("SELECT id FROM budgets WHERE entity='$eid' AND period = '$pid'");
+              if($days >= 0 && count($budgeted) == 0){
                 $f = date("d-m-Y", strtotime($period['_from']));
                 $t = date("d-m-Y", strtotime($period['_to']));
                 $n = str_replace(" ", "", $period['name']);
                 ?>
-                <option value="<?php echo $period['id']?>">
+                <option value="<?php echo $pid;?>">
                   <?php echo $n." (From ".$f." to ".$t.")";?>
                 </option>
                 <?php

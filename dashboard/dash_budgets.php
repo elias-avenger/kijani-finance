@@ -14,6 +14,7 @@
       <!-- Add budgeting period model -->
       <?php
         addBPeriodModel();
+        $budgets = getData('budgets');
       ?>
     </div>
   <!-- Budget Control Panel -->
@@ -23,10 +24,10 @@
       <table class="w-full ">
         <thead>
           <tr>
-            <th class="py-2">User Name</th>
-            <th class="py-2">Category</th>
+            <th class="py-2">Submited By</th>
+            <th class="py-2">Business Unit</th>
             <th class="py-2">Submitted</th>
-            <th class="py-2">Week</th>
+            <th class="py-2">Budget Period</th>
             <th class="py-2">Amount</th>
             <th class="py-2">Approval Status</th>
             <th class="py-2">Action</th>
