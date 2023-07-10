@@ -80,7 +80,7 @@
         else{
             $n = $p_t==='W'?"Week":"Fortnight";
             $num = selectCountWhere('budget_periods', 'type', $p_t);
-            $name = $n." - ".$num + 1;
+            $name = $n."-".$num + 1;
             $qry = "INSERT INTO budget_periods set name = '$name', _from = '$p_from', _to = '$p_to', type = '$p_t'";
             addData($qry);
             $_SESSION['msg'] = "success";
