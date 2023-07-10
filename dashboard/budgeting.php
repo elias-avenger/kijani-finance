@@ -46,6 +46,7 @@
     <h2 class="text-3xl font-bold mb-4">Budget Form</h2>
     <form action="../controllers/submit.php" method="POST" class="max-w-lg mx-auto overflow-x-auto">
       <div class="mb-4">
+        <input type="hidden" name="user" value="<?php echo $uid;?>">
         <input type="hidden" name="entity" value="<?php echo $eid;?>">
         <label for="category" class="block text-gray-700 font-bold mb-2">Budgeting Period:</label>
         <select name="period" class="w-full border border-gray-300 rounded py-2 px-4 focus:outline-none focus:border-blue-500" required>

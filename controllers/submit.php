@@ -88,19 +88,25 @@
         
     }
     if(isset($_POST['add-budget'])){
+        $s_by = $_POST['user'];
         $entity = $_POST['entity'];
         $period = $_POST['period'];
         $items = $_POST['item'];
         $qntys = $_POST['quantity'];
         $prices = $_POST['price'];
         $b_no = "B-E-".$entity."-P-".$period;
+        $incharge = specialNoResult("SELECT incharge FROM budgeting_entities WHERE entity = '$entity'")->fetch_column();
+        $i = $incharge['incharge'];
         var_dump($b_no);
         foreach($items as $item){
-            $i = array_search($item, $items);
-            $q = $qntys[$i];
-            $c = $prices[$i];
-            $b_qry = "INSERT INTO budegts SET quantity = '$q', cost = '$c', budget_no = '$b_no', incharge";
+            $x = array_search($item, $items);
+            $q = $qntys[$x];
+            $c = $prices[$x];
+            $b_qry = "INSERT INTO budegts SET quantity = '$q', cost = '$c', budget_no = '$b_no', incharge='$i', submitted_by = '$s_by', entity = '$entity', item = '$item', period = '$period'";
+            addData($b_qry);
         }
+        $_SESSION['msg'] = "success";
+        header("location: ../dashboard/budgeting.php");
     }
 
     function validateAndSubmitUser($tp){
