@@ -258,7 +258,7 @@
                         </select>
                     </div>
                     <div class="mt-4">
-                    <input type="submit" class="w-full bg-green-900 text-white px-4 py-2 rounded-md hover:bg-green-600" name="add-entity" value="Add Entity">
+                    <input type="submit" class="w-full bg-green-900 text-white px-4 py-2 rounded-md hover:bg-green-600" name="add-entity" value="Add Unit">
                   </div>
                 </form>
               </div>

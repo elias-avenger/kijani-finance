@@ -39,7 +39,7 @@
     $items = specialQuery($i_sql);
     return $items;
   }
-  $periods = getData('budget_period');
+  $periods = getData('budget_periods');
 ?>
   <!-- Dashboard Content -->
   <div class="container mx-auto py-8 px-4">
@@ -56,7 +56,7 @@
               $frm = date_create($period['_from']);
               $today = date_create(date("Y-m-d"));
               $days = date_diff($today, $frm)->format("%R%a");
-              if($days > 0){
+              if($days >= 0){
                 $f = date("d-m-Y", strtotime($period['_from']));
                 $t = date("d-m-Y", strtotime($period['_to']));
                 $n = str_replace(" ", "", $period['name']);
@@ -79,7 +79,6 @@
           else{
             ?>
             <div id="budgetItemsContainer" class="space-y-4">
-                
               <!-- Add more item input fields as needed -->
             </div>
             <?php
