@@ -31,7 +31,7 @@
         $sql = "SELECT * FROM budgeting_entities WHERE incharge = '$user'";
         $query = $conn -> prepare($sql);
         $query -> execute();
-        $result = $query->get_result();
+        $result = $query->get_result()->fetch_all(MYSQLI_ASSOC);
         return $result;
     }
     function delete($table, $id){

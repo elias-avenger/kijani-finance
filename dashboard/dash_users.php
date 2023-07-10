@@ -50,12 +50,15 @@
             <?php
               foreach($users as $user){
                 $uid = $user['id'];
-                if(mysqli_num_rows(getDepartment($uid)) > 0){
-                  $department = mysqli_fetch_array(getDepartment($uid));
-                  $dpt = $department['name'];
+                $user_depts = getDepartment($uid);
+                if(count($user_depts) > 0){
+                  $dept_names = [];
+                  foreach($user_depts as $user_dept)
+                    array_push($dept_names, $user_dept['name']);
+                  $depts = implode(", ", $dept_names);
                 }
                 else{
-                  $dpt = "Not Assigned";
+                  $depts = "Not Assigned";
                 }                  
                 ?>
                 <!-- the row to display user information -->
@@ -74,7 +77,7 @@
                       echo "Budget Approving";
                     ?>
                   </td>
-                  <td class="p-2"><?php echo $dpt;?></td>
+                  <td class="p-2"><?php echo $depts;?></td>
                   <!-- <td class="p-2"><?php //echo $uid;?></td> -->
                   <td class="flex justify-center gap-4 p-2">
                     <!-- edit button -->
