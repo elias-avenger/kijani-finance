@@ -14,7 +14,8 @@
       <!-- Add budgeting period model -->
       <?php
         addBPeriodModel();
-        $units = getData('budgeting_entities');
+        $b_units = getData('budgeting_entities');
+        $b_dates = specialQuery("SELECT DISTINCT submitted_on FROM budgets ORDER BY submitted_on DESC");
       ?>
     </div>
   <!-- Budget Control Panel -->

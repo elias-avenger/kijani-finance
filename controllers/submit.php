@@ -67,7 +67,7 @@
             $_SESSION['msg'] = "period-h";
             header("location: ../dashboard/dash_budgets.php");
         }
-        elseif(($p_t === 'W' & $days < 4) | ($p_t === 'F' & $days < 8))
+        elseif(($p_t === 'W' & $days < 7) | ($p_t === 'F' & $days < 14))
         {
             $_SESSION['msg'] = "period-l";
             header("location: ../dashboard/dash_budgets.php");

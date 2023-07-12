@@ -58,7 +58,7 @@
               $days = date_diff($today, $frm)->format("%R%a");
               $pid = $period['id'];
               $budgeted = specialQuery("SELECT id FROM budgets WHERE entity='$eid' AND period = '$pid'");
-              if($days >= 0 && count($budgeted) == 0){
+              if($days >= 2 && count($budgeted) == 0){
                 $f = date("d-m-Y", strtotime($period['_from']));
                 $t = date("d-m-Y", strtotime($period['_to']));
                 $n = str_replace(" ", "", $period['name']);
