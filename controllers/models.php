@@ -274,33 +274,39 @@
             <div class="relative w-full max-w-md max-h-full">
                 <!-- Modal content -->
                 <div class="relative bg-white rounded-lg shadow dark:bg-gray-700">
-                    <button type="button" class="absolute top-3 right-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white" data-modal-hide="bPeriodModal">
-                        <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
-                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
-                        </svg>
-                        <span class="sr-only">Close modal</span>
-                    </button>
+                    <div class="bg-green-900 rounded-t-lg text-white p-4 mt-2 ">
+                        <button type="button" class="absolute top-3 right-2.5 text-green-900 bg-gray-200 hover:bg-red-400 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ml-auto inline-flex justify-center items-center" data-modal-hide="bPeriodModal">
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 14">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"/>
+                            </svg>
+                            <span class="sr-only">Close modal</span>
+                        </button>
+                        <h3 class="mb-4 text-xl font-medium text-white">Budgeting Period</h3>
+                    </div>
                     <div class="px-6 py-6 lg:px-8">
-                        <h3 class="mb-4 text-xl font-medium text-gray-900 dark:text-white">Budgeting Period</h3> 
-            
                         <form id="" class="mx-auto flex  flex-col" action="../controllers/submit.php" method="POST">
-                            <div class="mr-4">
-                                <label class="block text-sm font-bold mb-2" for="period">Period Type:</label>
-                                <select class="border rounded w-full py-2 px-3 text-gray-700 focus:shadow-outline" id="b-period" name="p-type" required>
+                            <div class="p-2">
+                                <label class="block text-sm font-bold mb-2 text-green-900" for="period">Period Type:</label>
+                                <select class="w-full border-2 border-gray-300 rounded-md p-1" id="b-period" name="p-type" required>
                                     <option value="W">Weekly</option>
                                     <option value="F">Fortnightly</option>
                                 </select>
                             </div>
-                            <div class="mr-4">
-                                <label for="p-from" class="block">From:</label>
-                                <input type="date" name="p-from" id="p-from" class="border rounded w-full py-2 px-3 text-gray-700 focus:shadow-outline" required>
+                            <div class="p-2">
+                                <label for="p-from" class="block text-green-900 font-bold">From:</label>
+                                <input type="date" name="p-from" id="p-from" class="w-full border-2 border-gray-300 rounded-md p-1" required>
                             </div>
-                            <div class="mr-4">
-                                <label for="p-to" class="block">To:</label>
-                                <input type="date" name="p-to" id="p-to" class="border rounded w-full py-2 px-3 text-gray-700 focus:shadow-outline" required>
+                            <div class="p-2">
+                                <label for="p-to" class="block text-green-900 font-bold">To:</label>
+                                <input type="date" name="p-to" id="p-to" class="w-full border-2 border-gray-300 rounded-md p-1" required>
+                            </div>
+                            <div class="p-2">
+                                <label for="days" class="block text-green-900 font-bold">Deadline:</label>
+                                <input type="number" name=days" id="days" min="0" max="20" class="w-1/4 border-2 border-gray-300 rounded-md p-1" required> 
+                                <font class="text-green-900 font-bold">days before start</font>
                             </div>
                             <div class="flex items-center mt-4">
-                                <input type="submit" value="Add Period" name="add-bperiod" class="w-full bg-green-800 hover:bg-green-600 text-white font-bold py-2 px-4 rounded focus:shadow-outline">
+                                <input type="submit" value="Add Period" name="add-bperiod" class="w-full bg-green-900 text-white mx-4 py-2 rounded-md hover:bg-green-600">
                             </div>
                         </form>
                     </div>

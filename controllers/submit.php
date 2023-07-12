@@ -56,6 +56,7 @@
         $p_t = $_POST['p-type'];
         $p_from = $_POST['p-from'];
         $p_to = $_POST['p-to'];
+        $p_d = $_POST['days'];
         $pf = date_create($p_from);
         $pt = date_create($p_to);
         $days = date_diff($pf, $pt)->format("%R%a");
@@ -81,7 +82,7 @@
             $n = $p_t==='W'?"Week":"Fortnight";
             $num = selectCountWhere('budget_periods', 'type', $p_t);
             $name = $n."-".$num + 1;
-            $qry = "INSERT INTO budget_periods set name = '$name', _from = '$p_from', _to = '$p_to', type = '$p_t'";
+            $qry = "INSERT INTO budget_periods set name = '$name', _from = '$p_from', _to = '$p_to', type = '$p_t', deadline = '$p_d'";
             addData($qry);
             $_SESSION['msg'] = "success";
             header("location: ../dashboard/dash_budgets.php");
