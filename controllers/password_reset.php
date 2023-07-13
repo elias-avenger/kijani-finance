@@ -13,7 +13,7 @@
     
 
     if (isset($_POST['reset'])) {
-        $errors = validateEmail($_POST);
+        // $errors = validateEmail($_POST); validation
 
         if (count($errors)===0) {
             $email = $_POST['email'];
@@ -32,7 +32,7 @@
                 $mail->Port       = 587;                                    // TCP port to connect to, use 465 for `PHPMailer::ENCRYPTION_SMTPS` above
             
                 //Recipients
-                $mail->setFrom('emmanuelkato39@gmail.com', 'Hostel Savvy Gulu');
+                $mail->setFrom('emmanuelkato39@gmail.com', 'Kijani budgeting Sytem');
                 $mail->addAddress($email);     // Add a recipient
 
                 $code = substr(str_shuffle('1234567890QWERTYUIOPASDFGHJKLZXCVBNM'),0,10);
@@ -66,34 +66,3 @@
             }    
         }
     }
-
-    if (isset($_GET['code'])) {
-        
-        $user = selectAll('users',['code'=> $_GET['code']]);
-    }
-
-    
-    if (isset($_POST['update_password'])) {
-        $errors = validatePass($_POST);
-    
-        if (count($errors) === 0) {
-            $password = password_hash($_POST['password'], PASSWORD_DEFAULT);
-            $code = $_POST['code'];
-            unset($_POST['confirm_password'], $_POST['update_password']);
-    
-            $stmt = $conn->prepare("UPDATE users SET password = ?, code = '' WHERE code = ?");
-            $stmt->bind_param("ss", $password, $code);
-            $stmt->execute();
-    
-            if ($stmt->affected_rows > 0) {
-                header('location: login.php');
-                $_SESSION['message'] = "Password updated successfully";
-                exit();
-            } else {
-                array_push($errors, "Update password not successful");
-            }
-    
-            $stmt->close();
-        }
-    }
-    
