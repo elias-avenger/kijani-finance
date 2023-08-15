@@ -31,7 +31,7 @@
             </a>
 
             <hr class="border-1 border-gray-600 rounded-xl mb-8">
-            <div class="flex flex-col mt-8 mb-48">
+            <div class="flex flex-col mt-8 lg:mb-48">
                 <a href="dashboard.php" class="px-4 text-lg mb-4 py-2 hover:bg-green-900 hover:text-white rounded-lg border-t">
                 <i class="fa fa-th-large"></i> Dashboard</a>
 
