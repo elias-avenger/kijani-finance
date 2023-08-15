@@ -1,52 +1,52 @@
-<?php include 'includes/headd.php' ?>
+<?php include 'includes/header.php' ?>
 
    <!-- the first charts(squares) -->
-   <div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-2 py-4">
-      <!-- Todays expense -->
-      <div class="flex flex-col bg-white rounded-lg shadow-lg p-4 w-80">
-        <h2 class="text-xl text-green-500 font-medium text-center underline">Todays Expense</h2>
-        <div class="flex items-center justify-between py-4">
-            <h3 class="text-lg font-bold pl-8">UGX 30000/= </h3>
-            <i class="fa fa-pie-chart text-3xl text-green-500"></i>
+   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 py-4">
+        <!-- Todays expense -->
+        <div class="flex flex-col bg-white rounded-lg shadow-lg p-4 w-80">
+            <h2 class="text-xl text-green-500 font-medium text-center underline">Todays Expense</h2>
+            <div class="flex items-center justify-between py-4">
+                <h3 class="text-lg font-bold pl-8">UGX 30000/= </h3>
+                <i class="fa fa-pie-chart text-3xl text-green-500"></i>
+            </div>
+            <div class="flex items-center gap-4">
+                <i class="fa fa-long-arrow-up text-3xl text-red-500"></i>
+                <h3 class="text-lg "> 10% from Yesterday</h3>
+            </div>
         </div>
-        <div class="flex items-center gap-4">
-            <i class="fa fa-long-arrow-up text-3xl text-red-500"></i>
-            <h3 class="text-lg "> 10% from Yesterday</h3>
+        <div class="flex flex-col bg-white rounded-lg shadow-lg p-4 w-80">
+            <h2 class="text-xl text-green-500 font-medium text-center underline">This Week's Expense</h2>
+            <div class="flex items-center justify-between py-4">
+                <h3 class="text-lg font-bold pl-8">UGX 30000/= </h3>
+                <i class="fa fa-area-chart text-3xl text-yellow-500"></i>
+            </div>
+            <div class="flex items-center gap-4">
+                <i class="fa fa-long-arrow-down text-3xl text-green-500"></i>
+                <h3 class="text-lg "> 10% from Last Week</h3>
+            </div>
         </div>
-      </div>
-      <div class="flex flex-col bg-white rounded-lg shadow-lg p-4 w-80">
-          <h2 class="text-xl text-green-500 font-medium text-center underline">This Week's Expense</h2>
-          <div class="flex items-center justify-between py-4">
-              <h3 class="text-lg font-bold pl-8">UGX 30000/= </h3>
-              <i class="fa fa-area-chart text-3xl text-yellow-500"></i>
-          </div>
-          <div class="flex items-center gap-4">
-              <i class="fa fa-long-arrow-down text-3xl text-green-500"></i>
-              <h3 class="text-lg "> 10% from Last Week</h3>
-          </div>
-      </div>
-      <div class="flex flex-col bg-white rounded-lg shadow-lg p-4 w-80">
-          <h2 class="text-xl text-green-500 font-medium text-center underline">This Month's Expense</h2>
-          <div class="flex items-center justify-between py-4">
-              <h3 class="text-lg font-bold pl-8">UGX 30000/= </h3>
-              <i class="fa fa-line-chart text-3xl text-orange-500"></i>
-          </div>
-          <div class="flex items-center gap-4">
-              <i class="fa fa-long-arrow-up text-3xl text-red-500"></i>
-              <h3 class="text-lg "> 10% from Last Month</h3>
-          </div>
-      </div>
-      <div class="flex flex-col bg-white rounded-lg shadow-lg p-4 w-80">
-          <h2 class="text-xl text-green-500 font-medium text-center underline">This Year's Expense</h2>
-          <div class="flex items-center justify-between py-4">
-              <h3 class="text-lg font-bold pl-8">UGX 30000/= </h3>
-              <i class="fa fa-bar-chart text-3xl text-blue-500"></i>
-          </div>
-          <div class="flex items-center gap-4">
-              <i class="fa fa-long-arrow-down text-3xl text-green-500"></i>
-              <h3 class="text-lg "> 10% from Last Year</h3>
-          </div>
-      </div>
+        <div class="flex flex-col bg-white rounded-lg shadow-lg p-4 w-80">
+            <h2 class="text-xl text-green-500 font-medium text-center underline">This Month's Expense</h2>
+            <div class="flex items-center justify-between py-4">
+                <h3 class="text-lg font-bold pl-8">UGX 30000/= </h3>
+                <i class="fa fa-line-chart text-3xl text-orange-500"></i>
+            </div>
+            <div class="flex items-center gap-4">
+                <i class="fa fa-long-arrow-up text-3xl text-red-500"></i>
+                <h3 class="text-lg "> 10% from Last Month</h3>
+            </div>
+        </div>
+        <div class="flex flex-col bg-white rounded-lg shadow-lg p-4 w-80">
+            <h2 class="text-xl text-green-500 font-medium text-center underline">This Year's Expense</h2>
+            <div class="flex items-center justify-between py-4">
+                <h3 class="text-lg font-bold pl-8">UGX 30000/= </h3>
+                <i class="fa fa-bar-chart text-3xl text-blue-500"></i>
+            </div>
+            <div class="flex items-center gap-4">
+                <i class="fa fa-long-arrow-down text-3xl text-green-500"></i>
+                <h3 class="text-lg "> 10% from Last Year</h3>
+            </div>
+        </div>
   </div>
   <!-- charts container -->
   <div class="flex flex-col items-center md:flex-row gap-2 mb-2">
@@ -88,7 +88,7 @@
 
 
             <!-- last Activity table -->
-            <div class="bg-white p-2 rounded-lg shadow md:w-1/2">
+            <div class="bg-white p-2 rounded-lg shadow md:w-3/4">
                 <span class="font-bold underline">Last Activities</span>
                 <div class="flex flex-col gap-2">
                     <div class="flex justify-between items-center p-2 bg-red-100 rounded-lg">
@@ -115,4 +115,4 @@
                 </div>
             </div>
 
-  <?php include 'includes/foot.php' ?>
+  <?php include 'includes/footer.php' ?>
