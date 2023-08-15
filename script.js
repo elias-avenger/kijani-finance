@@ -1,6 +1,19 @@
 //the copyright date
-var today = new Date().getFullYear;
-var year = document.getElementById("year")
+var today = new Date();
+document.getElementById("coppy").innerText = today.getFullYear();
+
+//opening and closing the mobile menu
+function openM() {
+  document.getElementById("menu").style.display = "block";
+  document.getElementById("openBtn").style.display = "none";
+  document.getElementById("closeBtn").style.display = "block";
+}
+//closing mobile menu
+function closeM() {
+  document.getElementById("menu").style.display = "none";
+  document.getElementById("openBtn").style.display = "block";
+  document.getElementById("closeBtn").style.display = "none";
+}
 
 document.addEventListener('DOMContentLoaded', function () {
     // Data for the chart
