@@ -107,8 +107,8 @@
                  <!-- mobile menu button -->
                 <i class="fa fa-bars text-2xl text-white pl-4 md:hidden" id="openBtn" onclick="openM()"></i>
                 <i class="fa fa-times-circle text-2xl text-white pl-4 hidden   md:hidden" id="closeBtn" onclick="closeM()"></i>
-                <a href="#" class="flex p-2">
-                    <img src="https://media.licdn.com/dms/image/C5103AQFl656k2-DwOg/profile-displayphoto-shrink_800_800/0/1517034956958?e=2147483647&v=beta&t=6H_aZri3qcbtlgwTyTKBceuyTEPYW43xGViq5UL4J-w" alt="" class="w-8 h-8 rounded-full">
+                <a href="#" class="flex p-2 items-center">
+                    <img src="https://media.licdn.com/dms/image/C5103AQFl656k2-DwOg/profile-displayphoto-shrink_800_800/0/1517034956958?e=2147483647&v=beta&t=6H_aZri3qcbtlgwTyTKBceuyTEPYW43xGViq5UL4J-w" alt="" class="w-10 h-10 rounded-full border border-white">
                     <div class="hidden md:flex flex-col px-4">
                         <h4 class="text-lg  font-bold uppercase text-white"><?php echo $user_data['fname']." ".$user_data['lname'];?></h4>
                     </div>

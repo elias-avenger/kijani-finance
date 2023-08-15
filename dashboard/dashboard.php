@@ -18,7 +18,7 @@
           <h2 class="text-xl text-green-500 font-medium text-center underline">This Week's Expense</h2>
           <div class="flex items-center justify-between py-4">
               <h3 class="text-lg font-bold pl-8">UGX 30000/= </h3>
-              <i class="fa fa-pie-chart text-3xl text-green-500"></i>
+              <i class="fa fa-area-chart text-3xl text-yellow-500"></i>
           </div>
           <div class="flex items-center gap-4">
               <i class="fa fa-long-arrow-down text-3xl text-green-500"></i>
