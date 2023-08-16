@@ -10,137 +10,116 @@
     
 ?>
 <!DOCTYPE html>
- <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - kijani Forestry</title>
-    <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.css"  rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script>
-    tailwind.config = {
-      theme: {
-        screens: {
-            'sm': '640px',
-            // => @media (min-width: 640px) { ... }
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Kijani Forestry</title>
+        <meta name="author" content="name">
+        <meta name="description" content="description here">
+        <meta name="keywords" content="keywords,here">
 
-            'md': '768px',
-            // => @media (min-width: 768px) { ... }
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/tailwindcss@2.2.19/dist/tailwind.min.css"/> <!--Replace with your tailwind.css once created-->
+        <link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet"> <!--Totally optional :) -->
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.css"  rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js" integrity="sha256-xKeoJ50pzbUGkpQxDYHD7o7hxe0LaOGeguUidbq6vis=" crossorigin="anonymous"></script>
+        <script src="https://cdn.tailwindcss.com"></script>
+        
+    </head>
 
-            'lg': '1024px',
-            // => @media (min-width: 1024px) { ... }
+    <body class="bg-gradient-to-b from-green-900 to-green-400 font-sans leading-normal tracking-normal mt-12">
 
-            'xl': '1824px',
-            // => @media (min-width: 1280px) { ... }
+    <header>
+        <!--Nav-->
+        <nav aria-label="menu nav" class="bg-green-900 pt-2 md:pt-1 pb-1 px-1 mt-0 h-auto fixed w-full z-20 top-0">
 
-            '2xl': '1536px',
-            // => @media (min-width: 1536px) { ... }
-        },
-        extend: {
-          colors: {
-            clifford: '#da373d',
-          }
-        }
-      }
-    }
-  </script>
-</head>
-<body class="bg-gray-200">
-    <div class="flex flex-col md:flex-row p-4 gap-4 justify-center">
-        <nav class="hidden lg:flex flex-col w-[20%] bg-white rounded-lg h-fit px-4 pb-8 pt-4 sticky top-4">
-            <a href="dashboard.php" class="flex p-2 mb-2">
-                <img src="../images/KF_icon.png" class="w-12" alt="">
-                <span class="px-2 pt-2 text-2xl text-green-900 font-bold">Kijani Forestry</span>
-            </a>
-
-            <hr class="border-1 border-gray-600 rounded-xl mb-8">
-            <div class="flex flex-col mt-8 md:mb-16 lg:mb-6 xl:mb-48">
-                <a href="dashboard.php" class="px-4 text-lg mb-4 py-2 hover:bg-green-900 hover:text-white rounded-lg border-t">
-                <i class="fa fa-th-large"></i> Dashboard</a>
-
-                <div id="accordion-collapse" data-accordion="collapse">
-                    <h2 id="accordion-collapse-heading-1" class="text-black">
-                        <span type="button" class="flex items-center w-full justify-between px-4 text-lg mb-4 py-2 hover:bg-green-900 hover:text-white rounded-lg" data-accordion-target="#accordion-collapse-body-1" aria-expanded="false" aria-controls="accordion-collapse-body-1">
-                            <span class="text-lg hover:bg-green-900 hover:text-white rounded-lg "><i class="fa fa-money"></i> Budgets</span>
-                            <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
-                            </svg>
-                        </span>
-                    </h2>
-                    <div id="accordion-collapse-body-1" class="hidden" aria-labelledby="accordion-collapse-heading-1">
-                        <div class="flex flex-col p-2 bg-gray-100">
-                            <a href="dash_budgets.php" class="px-4  text-lg mb-4 py-2 bg-blue-500 text-white rounded-lg"><i class="fa fa-check"></i> Approved Budgets</a>
-                            <a href="dash_budgets.php" class="px-4 text-lg mb-4 py-2 bg-red-500 text-white rounded-lg"><i class="fa fa-spinner"></i> Pending Budgets</a>
-                        </div>
-                    </div>
+            <div class="flex flex-wrap items-center justify-between">
+                <div class="flex flex-shrink md:w-1/3 justify-center md:justify-start text-white">
+                    <a href="dashboard.php" aria-label="Home">
+                        <img src="../images/logo-1-.png" alt="">
+                    </a>
                 </div>
 
+                <!-- <div class="flex flex-1 md:w-1/3 justify-center md:justify-start text-white px-2">
+                    <span class="relative w-full">
+                        <input aria-label="search" type="search" id="search" placeholder="Search" class="w-full bg-gray-500 text-gray-100 transition border border-transparent focus:outline-none focus:border-gray-900 rounded py-3 px-2 pl-10 appearance-none leading-normal">
+                        <div class="absolute search-icon" style="top: 1rem; left: .8rem;">
+                            <svg class="fill-current pointer-events-none text-white w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                <path d="M12.9 14.32a8 8 0 1 1 1.41-1.41l5.35 5.33-1.42 1.42-5.33-5.34zM8 14A6 6 0 1 0 8 2a6 6 0 0 0 0 12z"></path>
+                            </svg>
+                        </div>
+                    </span>
+                </div> -->
 
-                <a href="dash_items.php" class="px-4  text-lg mb-4 py-2 hover:bg-green-900 hover:text-white rounded-lg border-t"><i class="fa fa-list-alt"></i> Items</a>
-                <a href="#" class="px-4  text-lg mb-4 py-2 hover:bg-green-900 hover:text-white rounded-lg border-t"><i class="fa fa-globe"></i> Departments</a>
-                <a href="dash_users.php" class="px-4  text-lg mb-4 py-2 hover:bg-green-900 hover:text-white rounded-lg border-t"><i class="fa fa-users"></i> Users</a>
-                <a href="#" class="px-4  text-lg mb-4 py-2 hover:bg-green-900 hover:text-white rounded-lg border-y"><i class="fa fa-cogs"></i>  Settings</a>
-            </div>
-
-            <div class="flex flex-col px-4 mb-4">
-                <a href="../controllers/logout.php" class="text-red-500 text-xl"><i class="fa fa-sign-out"></i> Logout</a>
-            </div>
-            <hr class="w-full border-1 border-green-900 rounded-full">
-            <div class="flex w-full py-4">
-                &copy; <span id="coppy"></span>  Kijani Forestry Finance
+                <div class="flex w-full pt-2 content-center justify-between md:w-1/3 md:justify-end">
+                    <ul class="list-reset flex justify-between flex-1 md:flex-none items-center">
+                        <!-- <li class="flex-1 md:flex-none md:mr-3">
+                            <a class="inline-block py-2 px-4 text-white no-underline" href="#">Active</a>
+                        </li>
+                        <li class="flex-1 md:flex-none md:mr-3">
+                            <a class="inline-block text-gray-400 no-underline hover:text-gray-200 hover:text-underline py-2 px-4" href="#">link</a>
+                        </li> -->
+                        <li class="flex-1 md:flex-none md:mr-3">
+                            <div class="relative inline-block">
+                                <button onclick="toggleDD('myDropdown')" class="drop-button text-white py-2 px-2"> <span class="pr-2"><i class="fa fa-user"></i></span> Hi, <?php echo $user_data['fname']." ".$user_data['lname'];?> 
+                                    <svg class="h-3 fill-current inline" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
+                                        <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z" />
+                                    </svg>
+                                </button>
+                                <div id="myDropdown" class="dropdownlist absolute bg-gray-800 text-white right-0 mt-3 p-3 overflow-auto z-30 invisible">
+                                    <!-- <input type="text" class="drop-search p-2 text-gray-600" placeholder="Search.." id="myInput" onkeyup="filterDD('myDropdown','myInput')"> -->
+                                    <a href="#" class="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block"><i class="fa fa-user fa-fw"></i> Profile</a>
+                                    <!-- <a href="#" class="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block"><i class="fa fa-cog fa-fw"></i> Settings</a> -->
+                                    <div class="border border-gray-200"></div>
+                                    <a href="../controllers/logout.php" class="p-2 hover:bg-gray-800 text-white text-sm no-underline hover:no-underline block"><i class="fa fa-sign-out fa-fw"></i> Log Out</a>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </nav>
-        <!-- mobile menu -->
-        <div class="hidden lg:hidden fixed top-4  w-11/12 md:w-3/4  mt-16 p-4 bg-green-900 z-50 border-1 border-red-500 rounded-xl" id="menu">
-            <ul class="flex flex-col text-white">
-                <a href="dashboard.php" class="px-4 text-lg mb-4 py-2 hover:bg-green-900 hover:text-white rounded-lg ">
-                    <i class="fa fa-th-large"></i> Dashboard
-                </a>
-                <div id="accordion-collapse" data-accordion="collapse">
-                    <h2 id="accordion-collapse-budget" class="text-white">
-                        <span type="button" class="flex items-center w-full justify-between px-4 text-lg mb-4 py-2 hover:bg-green-900 hover:text-white rounded-lg" data-accordion-target="#accordion-collapse-body-2" aria-expanded="false" aria-controls="accordion-collapse-body-1">
-                            <span class="text-lg hover:bg-green-900 hover:text-white rounded-lg "><i class="fa fa-money"></i> Budgets</span>
-                            <svg data-accordion-icon class="w-3 h-3 rotate-180 shrink-0" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
-                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5 5 1 1 5"/>
-                            </svg>
-                        </span>
-                    </h2>
-                    <div id="accordion-collapse-body-2" class="hidden" aria-labelledby="accordion-collapse-budget">
-                        <div class="flex flex-col p-2 bg-gray-100 rounded-xl">
-                            <a href="dash_budgets.php" class="px-4  text-lg mb-4 py-2 bg-blue-500 text-white rounded-lg"><i class="fa fa-check"></i> Approved Budgets</a>
-                            <a href="dash_budgets.php" class="px-4 text-lg mb-4 py-2 bg-red-500 text-white rounded-lg"><i class="fa fa-spinner"></i> Pending Budgets</a>
-                        </div>
+    </header>
+    <main>
+        <div class="flex flex-col md:flex-row">
+            <nav aria-label="alternative nav">
+                <div class="bg-gradient-to-b from-green-900 to-green-400 shadow-xl h-20 fixed bottom-0 mt-0 md:relative md:h-screen z-10 w-full md:w-48 content-center">
+
+                    <div class="md:mt-12 md:w-48 md:fixed md:left-0 md:top-12 content-center md:content-start text-left justify-between">
+                        <ul class="list-reset flex flex-row md:flex-col pt-3 md:py-3 px-1 md:px-2 text-center md:text-left">
+                            <li class="mr-3 flex-1">
+                                <a href="dashboard.php" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-gray-100">
+                                    <i class="fa fa-dashboard pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">Dashboard</span>
+                                </a>
+                            </li>
+                            <li class="mr-3 flex-1 md:mt-5">
+                                <a href="dash_budgets.php" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-gray-100">
+                                    <i class="fa fa-calculator pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">Budgets</span>
+                                </a>
+                            </li>
+                            <li class="mr-3 flex-1 md:mt-5">
+                                <a href="dash_items.php" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-gray-100">
+                                    <i class="fa fa-list pr-0 md:pr-3 text-gray-100"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-white md:text-white block md:inline-block">Items</span>
+                                </a>
+                            </li>
+                            <li class="mr-3 flex-1 md:mt-5">
+                                <a href="#" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-gray-100">
+                                    <i class="fa fa-building-o pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">Departments</span>
+                                </a>
+                            </li>
+                            <li class="mr-3 flex-1 md:mt-5">
+                                <a href="dash_users.php" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-gray-100">
+                                    <i class="fa fa-users pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">Users</span>
+                                </a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <a href="dash_items.php" class="px-4  text-lg mb-4 py-2 hover:bg-green-900 hover:text-white rounded-lg "><i class="fa fa-list-alt"></i> Items</a>
-                <a href="#" class="px-4  text-lg mb-4 py-2 hover:bg-green-900 hover:text-white "><i class="fa fa-globe"></i> Departments</a>
-                <a href="dash_users.php" class="px-4  text-lg mb-4 py-2 hover:bg-green-900 hover:text-white rounded-lg"><i class="fa fa-users"></i> Users</a>
-                <a href="#" class="px-4  text-lg mb-4 py-2 hover:bg-green-900 hover:text-white rounded-lg"><i class="fa fa-cogs"></i>  Settings</a>
-                <hr class="border border-white rounded-full">
-                <div class="flex flex-col px-4 my-4">
-                    <a href="../controllers/logout.php" class="text-red-500 text-xl"><i class="fa fa-sign-out"></i> Logout</a>
-                </div>
-            </ul>
-        </div>
-       
-        <!-- main content -->
-        <div class="lg:w-[80%] md:w-5/6 rounded-lg h-max md:mt-12 lg:mt-0">
-             <!-- upper bar -->
-            <div class="fixed top-0 lg:sticky lg:top-4 left-0 flex justify-between lg:justify-end items-center w-full rounded-lg  bg-green-900 shadow p-2">
-                 <!-- mobile menu button -->
-                <i class="fa fa-bars text-2xl text-white pl-4 lg:hidden" id="openBtn" onclick="openM()"></i>
-                <i class="fa fa-times-circle text-2xl text-white pl-4 hidden   lg:hidden" id="closeBtn" onclick="closeM()"></i>
-                <a href="#" class="flex p-2 items-center">
-                    <img src="https://media.licdn.com/dms/image/C5103AQFl656k2-DwOg/profile-displayphoto-shrink_800_800/0/1517034956958?e=2147483647&v=beta&t=6H_aZri3qcbtlgwTyTKBceuyTEPYW43xGViq5UL4J-w" alt="" class="w-10 h-10 rounded-full border border-white">
-                    <div class="hidden md:flex flex-col px-4">
-                        <h4 class="text-lg  font-bold uppercase text-white"><?php echo $user_data['fname']." ".$user_data['lname'];?></h4>
-                    </div>
-                </a>
-            </div>
+            </nav>
 
 
            

@@ -4,7 +4,7 @@
   include "../controllers/msg.php";  
 ?>
 <!-- Category Addition Content -->
-<div class="container mx-auto py-8 px-4">
+<div class="container mx-auto py-8 px-4 bg-gray-200">
   <div class="relative bg-white shadow-md rounded-md p-4">
     <button data-modal-target="categoryModal" data-modal-toggle="categoryModal" class="bg-green-900 px-4 py-2 text-white rounded-lg">Add Item Category</button>
     <?php 

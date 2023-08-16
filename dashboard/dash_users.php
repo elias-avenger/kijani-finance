@@ -4,7 +4,7 @@
   include "../controllers/msg.php";           
 ?>
 <!-- Container -->
-<div class="container mx-auto py-8 px-4">
+<div class="container mx-auto py-8 px-4 bg-gray-200">
   <!-- User Control Panel -->
   <div class="relative bg-white shadow-md rounded-md p-4">
     <!-- Addd new user button -->
