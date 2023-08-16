@@ -25,9 +25,10 @@
 <body class="bg-gray-200">
     <div class="flex flex-col md:flex-row p-4 gap-4 justify-center">
         <nav class="hidden md:flex flex-col w-[20%] bg-white rounded-lg h-fit px-4 pb-8 pt-4 sticky top-4">
-            <a href="dashboard.php" class="flex p-2 mb-4">
-                <img src="../images/KF_icon.png" class="w-12" alt="">
-                <span class="px-2 pt-2 text-2xl text-green-900 font-bold">Kijani Forestry</span>
+            
+            <a href="dashboard.php" class="flex-col content-center p-2 mb-4 bg-green-900">
+                <img src="../images/logo-2.png" class="w-full" alt="">
+                <!-- <span class="px-2 pt-2 text-2xl text-green-900 font-bold">Kijani Forestry</span> -->
             </a>
 
             <hr class="border-1 border-gray-600 rounded-xl mb-8">
