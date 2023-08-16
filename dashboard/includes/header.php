@@ -21,17 +21,44 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.css"  rel="stylesheet" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script>
+    tailwind.config = {
+      theme: {
+        screens: {
+            'sm': '640px',
+            // => @media (min-width: 640px) { ... }
+
+            'md': '768px',
+            // => @media (min-width: 768px) { ... }
+
+            'lg': '1024px',
+            // => @media (min-width: 1024px) { ... }
+
+            'xl': '1824px',
+            // => @media (min-width: 1280px) { ... }
+
+            '2xl': '1536px',
+            // => @media (min-width: 1536px) { ... }
+        },
+        extend: {
+          colors: {
+            clifford: '#da373d',
+          }
+        }
+      }
+    }
+  </script>
 </head>
 <body class="bg-gray-200">
     <div class="flex flex-col md:flex-row p-4 gap-4 justify-center">
-        <nav class="hidden md:flex flex-col w-[20%] bg-white rounded-lg h-fit px-4 pb-8 pt-4 sticky top-4">
-            <a href="dashboard.php" class="flex p-2 mb-4">
+        <nav class="hidden lg:flex flex-col w-[20%] bg-white rounded-lg h-fit px-4 pb-8 pt-4 sticky top-4">
+            <a href="dashboard.php" class="flex p-2 mb-2">
                 <img src="../images/KF_icon.png" class="w-12" alt="">
                 <span class="px-2 pt-2 text-2xl text-green-900 font-bold">Kijani Forestry</span>
             </a>
 
             <hr class="border-1 border-gray-600 rounded-xl mb-8">
-            <div class="flex flex-col mt-8 lg:mb-18">
+            <div class="flex flex-col mt-8 md:mb-16 lg:mb-6 xl:mb-48">
                 <a href="dashboard.php" class="px-4 text-lg mb-4 py-2 hover:bg-green-900 hover:text-white rounded-lg border-t">
                 <i class="fa fa-th-large"></i> Dashboard</a>
 
@@ -68,7 +95,7 @@
             </div>
         </nav>
         <!-- mobile menu -->
-        <div class="hidden md:hidden fixed w-full mt-16 left-0 p-4 bg-green-900 z-50 border-1 border-red-500 rounded-xl" id="menu">
+        <div class="hidden lg:hidden fixed top-4  w-11/12 md:w-3/4  mt-16 p-4 bg-green-900 z-50 border-1 border-red-500 rounded-xl" id="menu">
             <ul class="flex flex-col text-white">
                 <a href="dashboard.php" class="px-4 text-lg mb-4 py-2 hover:bg-green-900 hover:text-white rounded-lg ">
                     <i class="fa fa-th-large"></i> Dashboard
@@ -101,12 +128,12 @@
         </div>
        
         <!-- main content -->
-        <div class="lg:w-[80%] md:w-5/6 rounded-lg h-max">
+        <div class="lg:w-[80%] md:w-5/6 rounded-lg h-max md:mt-12 lg:mt-0">
              <!-- upper bar -->
-            <div class="fixed md:sticky top-4 left-0 flex justify-between md:justify-end items-center w-full rounded-lg  bg-green-900 shadow p-2">
+            <div class="fixed top-0 lg:sticky lg:top-4 left-0 flex justify-between lg:justify-end items-center w-full rounded-lg  bg-green-900 shadow p-2">
                  <!-- mobile menu button -->
-                <i class="fa fa-bars text-2xl text-white pl-4 md:hidden" id="openBtn" onclick="openM()"></i>
-                <i class="fa fa-times-circle text-2xl text-white pl-4 hidden   md:hidden" id="closeBtn" onclick="closeM()"></i>
+                <i class="fa fa-bars text-2xl text-white pl-4 lg:hidden" id="openBtn" onclick="openM()"></i>
+                <i class="fa fa-times-circle text-2xl text-white pl-4 hidden   lg:hidden" id="closeBtn" onclick="closeM()"></i>
                 <a href="#" class="flex p-2 items-center">
                     <img src="https://media.licdn.com/dms/image/C5103AQFl656k2-DwOg/profile-displayphoto-shrink_800_800/0/1517034956958?e=2147483647&v=beta&t=6H_aZri3qcbtlgwTyTKBceuyTEPYW43xGViq5UL4J-w" alt="" class="w-10 h-10 rounded-full border border-white">
                     <div class="hidden md:flex flex-col px-4">
