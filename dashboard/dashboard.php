@@ -114,18 +114,32 @@
                     <div class="p-5">
                         <canvas id="chartjs-7" class="chartjs" width="undefined" height="undefined"></canvas>
                         <script>
+                            let data_PI = [], data_AC = [];
+                            <?php 
+                                $ACs = [5, 15, 20, 30];
+                                for($x = 10; $x<=40; $x+=10){
+                                    ?>
+                                    data_PI.push(<?php echo $x;?>);
+                                    <?php
+                                }
+                                foreach($ACs as $AC){
+                                    ?>
+                                    data_AC.push(<?php echo $AC;?>);
+                                    <?php
+                                }
+                            ?>
                             new Chart(document.getElementById("chartjs-7"), {
                                 "type": "bar",
                                 "data": {
                                     "labels": ["January", "February", "March", "April"],
                                     "datasets": [{
                                         "label": "Page Impressions",
-                                        "data": [10, 20, 30, 40],
+                                        "data": data_PI,
                                         "borderColor": "rgb(255, 99, 132)",
                                         "backgroundColor": "rgba(255, 99, 132, 0.2)"
                                     }, {
                                         "label": "Adsense Clicks",
-                                        "data": [5, 15, 10, 30],
+                                        "data": data_AC,
                                         "type": "line",
                                         "fill": false,
                                         "borderColor": "rgb(54, 162, 235)"
