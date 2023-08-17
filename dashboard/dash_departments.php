@@ -8,20 +8,15 @@
   <div id="main" class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
     <div class="bg-gradient-to-b from-green-900 to-green-400 pt-3">
         <div class="rounded-tl-3xl bg-gradient-to-r from-green-900 to-green-400 p-4 shadow text-2xl text-white">
-            <h1 class="font-bold pl-2">Users</h1>
+            <h1 class="font-bold pl-2">Departments</h1>
         </div>
     </div>
     <div class="container mx-auto py-8 px-4 bg-gray-200">
       <!-- User Control Panel -->
       <div class="relative bg-white shadow-md rounded-md p-4">
-        <!-- Addd new user button -->
-        <button data-modal-toggle="add-user-form" class="bg-green-800 text-white mb-2 px-1 py-2 rounded-md hover:bg-green-600">
-          Add new user
-        </button>
         <!-- Add user model -->
         <?php
           $users = getData('users');
-          addUserModel();
           $b_users = specialQuery("SELECT id FROM users WHERE type = 'B'");
           if(!empty($b_users)){
             ?>
