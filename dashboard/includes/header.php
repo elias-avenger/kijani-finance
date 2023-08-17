@@ -92,27 +92,27 @@
                         <ul class="list-reset flex flex-row md:flex-col pt-3 md:py-3 px-1 md:px-2 text-center md:text-left">
                             <li class="mr-3 flex-1">
                                 <a href="dashboard.php" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-gray-100">
-                                    <i class="fa fa-dashboard pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">Dashboard</span>
+                                    <i class="fa fa-dashboard pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-white md:text-gray-200 block md:inline-block">Dashboard</span>
                                 </a>
                             </li>
                             <li class="mr-3 flex-1 md:mt-5">
                                 <a href="dash_budgets.php" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-gray-100">
-                                    <i class="fa fa-calculator pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">Budgets</span>
+                                    <i class="fa fa-calculator pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-white md:text-gray-200 block md:inline-block">Budgets</span>
                                 </a>
                             </li>
                             <li class="mr-3 flex-1 md:mt-5">
                                 <a href="dash_items.php" class="block py-1 md:py-3 pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-gray-100">
-                                    <i class="fa fa-list pr-0 md:pr-3 text-gray-100"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-white md:text-white block md:inline-block">Items</span>
+                                    <i class="fa fa-list pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-white md:text-gray-200 block md:inline-block">Items</span>
                                 </a>
                             </li>
                             <li class="mr-3 flex-1 md:mt-5">
                                 <a href="dash_departments.php" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-gray-100">
-                                    <i class="fa fa-building-o pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">Departments</span>
+                                    <i class="fa fa-building-o pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-white md:text-gray-200 block md:inline-block">Departments</span>
                                 </a>
                             </li>
                             <li class="mr-3 flex-1 md:mt-5">
                                 <a href="dash_users.php" class="block py-1 md:py-3 pl-0 md:pl-1 align-middle text-white no-underline hover:text-white border-b-2 border-gray-800 hover:border-gray-100">
-                                    <i class="fa fa-users pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-gray-400 md:text-gray-200 block md:inline-block">Users</span>
+                                    <i class="fa fa-users pr-0 md:pr-3"></i><span class="pb-1 md:pb-0 text-xs md:text-base text-white md:text-gray-200 block md:inline-block">Users</span>
                                 </a>
                             </li>
                         </ul>
