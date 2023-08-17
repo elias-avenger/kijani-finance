@@ -1,7 +1,6 @@
             </div>
         </main>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.0/flowbite.min.js"></script>
-        <script src="https://cdn.tailwindcss.com"></script>
         <script>
             /*Toggle dropdown list*/
             function toggleDD(myDropMenu) {
