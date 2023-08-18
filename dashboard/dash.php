@@ -4,7 +4,7 @@
     include "../controllers/msg.php";
 ?>
 
-<section>
+<section class="w-full">
     <div id="main" class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
 
         <div class="bg-gradient-to-b from-green-900 to-green-400 pt-3">
@@ -15,7 +15,7 @@
 
         <div class="flex flex-wrap">
             <div class="relative bg-white shadow-md rounded-md p-4">
-                <button data-modal-target="categoryModal" data-modal-toggle="categoryModal" class="bg-green-900 px-4 py-2 text-white rounded-lg m-2">
+                <button data-modal-toggle="add-user-form" class="bg-green-800 text-white mb-2 px-2 py-2 rounded-md hover:bg-green-600 m-2">
                     Add Item Category
                 </button>
                 <?php 
@@ -24,7 +24,7 @@
                 $entities = getData('budgeting_entities');
                 if(!empty($categories) && !empty($entities)){
                     ?>
-                    <button data-modal-target="itemModal" data-modal-toggle="itemModal" class="bg-green-900 px-4 py-2 text-white rounded-lg m-2">
+                    <button data-modal-toggle="add-user-form" class="bg-green-800 text-white mb-2 px-2 py-2 rounded-md hover:bg-green-600 m-2">
                         Add Item
                     </button> 
                     <?php 
@@ -37,13 +37,13 @@
 
         <div class="flex flex-row flex-wrap flex-grow mt-2">
             
-            <div class="w-full md:w-2/3 p-6">
+            <div class="w-full md:w-2/3 pt-6 pb-6">
                 <!--Table Card-->
                 <div class="bg-white border-transparent rounded-lg shadow-xl">
                     <div class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
                         <h2 class="font-bold uppercase text-gray-600">Item Categories</h2>
                     </div>
-                    <div class="p-5">
+                    <div class="p-5 overflow-x-auto">
                         <?php
                             if(empty($categories)){
                                 echo "<font class='text-red-400 font-bold'> No categories registered yet!</font>";
@@ -89,7 +89,7 @@
                 </div>
                 <!--/table Card-->
             </div>
-            <div class="w-full md:w-2/3 p-6">
+            <div class="w-full md:w-2/3 pt-6 pb-6">
                 <!--Table Card-->
                 <div class="bg-white border-transparent rounded-lg shadow-xl">
                     <div class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
