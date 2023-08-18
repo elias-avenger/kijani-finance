@@ -1,19 +1,19 @@
 <?php 
-  include 'includes/header.php'; 
-  include "../controllers/models.php";
-  include "../controllers/msg.php";  
+    include "includes/header.php"; 
+    include "../controllers/models.php";
+    include "../controllers/msg.php";
 ?>
-<!-- Category Addition Content -->
+
 <section class="w-full">
     <div id="main" class="main-content flex-1 bg-gray-100 mt-12 md:mt-2 pb-24 md:pb-5">
 
         <div class="bg-gradient-to-b from-green-900 to-green-400 pt-3">
             <div class="rounded-tl-3xl bg-gradient-to-r from-green-900 to-green-400 p-4 shadow text-2xl text-white">
-                <h1 class="font-bold pl-2">Items and Item Categories</h1>
+                <h1 class="font-bold pl-2">Dashboard</h1>
             </div>
         </div>
 
-        <div class="flex flex-wrap p-6">
+        <div class="flex flex-wrap">
             <div class="relative bg-white shadow-md rounded-md p-4">
             <button data-modal-target="categoryModal" data-modal-toggle="categoryModal" class="bg-green-800 text-white mb-2 px-2 py-2 rounded-md hover:bg-green-600 m-2">
                     Add Item Category
@@ -37,7 +37,7 @@
 
         <div class="flex flex-row flex-wrap flex-grow mt-2">
             
-            <div class="w-full md:w-2/3 pt-6 pb-6 md:p-6">
+            <div class="w-full md:w-2/3 pt-6 pb-6">
                 <!--Table Card-->
                 <div class="bg-white border-transparent rounded-lg shadow-xl">
                     <div class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
@@ -89,7 +89,7 @@
                 </div>
                 <!--/table Card-->
             </div>
-            <div class="w-full md:w-2/3 pt-6 pb-6 md:p-6">
+            <div class="w-full md:w-2/3 pt-6 pb-6">
                 <!--Table Card-->
                 <div class="bg-white border-transparent rounded-lg shadow-xl">
                     <div class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
@@ -153,29 +153,5 @@
         </div>
     </div>
 </section>
+
 <?php include 'includes/footer.php' ?>
-<script>
-  function showEntity(){
-    <?php
-      foreach($entities as $entity){
-        $ei = $entity['id'];
-        ?>
-        $checkbox<?php echo $ei;?> = document.getElementById('check<?php echo $ei;?>');
-        $div<?php echo $ei;?> = document.getElementById('entity<?php echo $ei;?>');
-        $unit<?php echo $ei;?> = document.getElementById('unit<?php echo $ei;?>');
-        $just<?php echo $ei;?> = document.getElementById('just<?php echo $ei;?>');
-        if($checkbox<?php echo $ei;?>.checked == true){
-          $div<?php echo $ei;?>.style.display = "block";
-          $unit<?php echo $ei;?>.disabled = false;
-          $just<?php echo $ei;?>.disabled = false;
-        }
-        else{
-          $div<?php echo $ei;?>.style.display = "none";
-          $unit<?php echo $ei;?>.disabled = true;
-          $just<?php echo $ei;?>.disabled = true;
-        }
-        <?php
-      }  
-    ?>
-  }
-</script>
