@@ -15,7 +15,7 @@
 
         <div class="flex flex-wrap">
             <div class="relative bg-white shadow-md rounded-md p-4">
-                <button data-modal-toggle="add-user-form" class="bg-green-800 text-white mb-2 px-2 py-2 rounded-md hover:bg-green-600 m-2">
+            <button data-modal-target="categoryModal" data-modal-toggle="categoryModal" class="bg-green-800 text-white mb-2 px-2 py-2 rounded-md hover:bg-green-600 m-2">
                     Add Item Category
                 </button>
                 <?php 
@@ -24,7 +24,7 @@
                 $entities = getData('budgeting_entities');
                 if(!empty($categories) && !empty($entities)){
                     ?>
-                    <button data-modal-toggle="add-user-form" class="bg-green-800 text-white mb-2 px-2 py-2 rounded-md hover:bg-green-600 m-2">
+                    <button data-modal-target="itemModal" data-modal-toggle="itemModal" class="bg-green-800 text-white mb-2 px-2 py-2 rounded-md hover:bg-green-600 m-2">
                         Add Item
                     </button> 
                     <?php 
