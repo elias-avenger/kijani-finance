@@ -43,7 +43,7 @@
           </div>
           <div class="p-5 overflow-x-auto">
 
-            <table class="">
+            <table class="whitespace-nowrap">
               <thead>
                 <tr class="text-center">
                   <th class="py-2">Unit Name</th>

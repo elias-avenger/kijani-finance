@@ -35,7 +35,7 @@
             <h2 class="font-bold uppercase text-gray-600">Registered Users</h2>
           </div>
           <div class="p-5 overflow-x-auto">
-            <table class="">
+            <table class="whitespace-nowrap">
               <thead>
                 <tr>
                   <th class="p-2 text-center">Name</th>

@@ -31,14 +31,14 @@
     <!-- Budget Control Panel -->
     <div class="flex flex-row flex-wrap flex-grow mt-2">
           
-      <div class="w-full md:w-2/3 pt-6 pb-6 md:p-6">
+      <div class="w-full md:w-4/5 pt-6 pb-6 md:p-6">
         <!--Table Card-->
         <div class="bg-white border-transparent rounded-lg shadow-xl">
           <div class="bg-gradient-to-b from-gray-300 to-gray-100 uppercase text-gray-800 border-b-2 border-gray-300 rounded-tl-lg rounded-tr-lg p-2">
             <h2 class="font-bold uppercase text-gray-600">Budets</h2>
           </div>
           <div class="p-5 overflow-x-auto">
-            <table class="">
+            <table class="whitespace-nowrap">
               <thead>
                 <tr>
                   <th class="p-2">Submited By</th>
@@ -83,7 +83,7 @@
                           $status = "Approved";
                         ?>
                         <tr class="">
-                          <td class="p-2"><?php echo $name_s_by;?></td>
+                          <td class="p-2 flex"><?php echo $name_s_by;?></td>
                           <td class="p-2"><?php echo $unit_name;?></td>
                           <td class="p-2"><?php echo $submitted;?></td>
                           <td class="p-2"><?php echo $period_name;?></td>
@@ -92,11 +92,13 @@
                             <span class="bg-red-500 text-white text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300"><?php echo $status;?></span>
                           </td>
                           <td class="flex gap-4">
-                            <a href="#" data-tooltip-target="tooltip-bottom" data-tooltip-placement="bottom" type="button"><img src="visibility_black_24dp.svg" alt="view"></a>
-                            <div id="tooltip-bottom" role="tooltip" class="absolute z-10 invisible inline-block py-2 text-sm font-medium text-white bg-green-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
+                            <!-- <a href="#" data-tooltip-target="tooltip-bottom" data-tooltip-placement="bottom" type="button"> -->
+                              <img src="visibility_black_24dp.svg" alt="view">
+                            <!-- </a> -->
+                            <!-- <div id="tooltip-bottom" role="tooltip" class="absolute z-10 invisible inline-block py-2 text-sm font-medium text-white bg-green-900 rounded-lg shadow-sm opacity-0 tooltip dark:bg-gray-700">
                               View budget
                               <div class="tooltip-arrow" data-popper-arrow></div>
-                            </div>
+                            </div> -->
                           </td>
                         </tr>
                         <?php

@@ -50,7 +50,7 @@
                             }
                             else{
                                 ?>
-                                <table class="">
+                                <table class="whitespace-nowrap">
                                     <thead>
                                         <tr class="text-center">
                                             <th class="py-2">Category Name</th>
@@ -102,7 +102,7 @@
                         }
                         else{
                             ?>
-                            <table class="">
+                            <table class="whitespace-nowrap">
                             <thead>
                                 <tr class="text-center">
                                 <th class="py-2">Item Name</th>
