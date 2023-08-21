@@ -18,7 +18,7 @@
 <body>
 
   <div class="min-h-screen flex flex-col items-center justify-center bg-green-900" style="background-color: #235F3D;">
-    <img src="images/logo-1.png" class="mb-4 w-96" alt="logo">
+    <img src="images/logo-2.png" class="mb-4 w-96" alt="logo">
     <div class="max-w-md w-full mx-auto p-4">
         <?php
             include "controllers/msg.php";
